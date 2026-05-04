@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AYDA Yönetici Link Paneli</title>
-  <meta name="description" content="AYDA yöneticileri için form, ödeme, sınav, materyal, banka ve şirket bilgileri hızlı kullanım paneli." />
 
   <style>
     :root {
@@ -47,101 +46,54 @@
     }
 
     .page {
-      max-width: 1180px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 22px 14px 40px;
+      padding: 14px 12px 36px;
     }
 
-    .topbar {
+    .simple-header {
       background: linear-gradient(135deg, var(--ayda), var(--ayda-dark));
       color: #fff;
-      border-radius: 24px;
-      padding: 24px;
+      border-radius: 20px;
+      padding: 18px 18px;
       box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .brand {
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .simple-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       background: #fff;
       color: var(--ayda);
       display: grid;
       place-items: center;
       font-weight: 950;
-      letter-spacing: -0.8px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.14);
+      font-size: 14px;
       flex: 0 0 auto;
     }
 
-    .topbar h1 {
-      font-size: clamp(23px, 4vw, 34px);
-      letter-spacing: -0.8px;
+    h1 {
+      font-size: clamp(22px, 4vw, 31px);
       line-height: 1.1;
-    }
-
-    .topbar p {
-      color: rgba(255,255,255,.78);
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .quick-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .quick-btn {
-      min-height: 42px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.22);
-      color: #fff;
-      font-weight: 850;
-      white-space: nowrap;
-      transition: .18s ease;
-    }
-
-    .quick-btn.primary {
-      background: #fff;
-      color: var(--ayda);
-      border-color: #fff;
-    }
-
-    .quick-btn:hover,
-    .action:hover,
-    .copy-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .admin-note {
-      background: #eef3ff;
-      color: var(--ayda);
-      border: 1px solid #d7e3ff;
-      border-radius: 16px;
-      padding: 13px 15px;
-      margin: 16px 0;
-      font-weight: 760;
-      font-size: 14px;
+      letter-spacing: -0.7px;
     }
 
     .layout {
       display: grid;
       grid-template-columns: 1.45fr .9fr;
-      gap: 16px;
+      gap: 14px;
       align-items: start;
     }
 
@@ -151,12 +103,11 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     summary.section-head {
       padding: 15px 16px;
-      border-bottom: 1px solid transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -172,7 +123,7 @@
     }
 
     details[open] summary.section-head {
-      border-bottom-color: var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .section-title-wrap {
@@ -183,9 +134,9 @@
     }
 
     .chevron {
-      width: 32px;
-      height: 32px;
-      border-radius: 11px;
+      width: 31px;
+      height: 31px;
+      border-radius: 10px;
       background: var(--soft);
       color: var(--ayda);
       display: grid;
@@ -288,6 +239,10 @@
       transition: .18s ease;
       white-space: nowrap;
     }
+    .action:hover,
+    .copy-btn:hover {
+      transform: translateY(-1px);
+    }
 
     .action {
       display: inline-flex;
@@ -368,73 +323,46 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .helper-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .helper-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 12px;
-      box-shadow: 0 8px 22px rgba(23, 32, 51, 0.05);
-    }
-
-    .helper-card strong {
-      display: block;
-      color: var(--ayda);
-      font-size: 13px;
-      margin-bottom: 2px;
-    }
-
-    .helper-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
     @media (max-width: 900px) {
-      .topbar,
       .layout {
         grid-template-columns: 1fr;
       }
 
-      .quick-actions {
-        justify-content: flex-start;
-      }
-
-      .helper-strip {
-        grid-template-columns: 1fr 1fr;
+      .simple-header {
+        align-items: flex-start;
       }
     }
 
     @media (max-width: 620px) {
       .page {
-        padding: 12px 10px 28px;
+        padding: 10px 9px 26px;
       }
 
-      .topbar {
-        padding: 18px;
-        border-radius: 20px;
+      .simple-header {
+        padding: 16px;
+        border-radius: 18px;
       }
 
-      .brand {
+      .simple-title {
         align-items: flex-start;
       }
 
       .logo {
-        width: 46px;
-        height: 46px;
-        border-radius: 14px;
-        font-size: 14px;
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        font-size: 13px;
       }
 
-      .helper-strip {
+      .mini-actions {
+        width: 100%;
+        display: grid;
         grid-template-columns: 1fr;
+      }
+
+      .mini-btn {
+        text-align: center;
+        width: 100%;
       }
 
       .link-row {
@@ -470,7 +398,7 @@
 
       .section-head span.desc {
         white-space: normal;
-        padding-left: 42px;
+        padding-left: 41px;
       }
 
       .link-url {
@@ -482,44 +410,12 @@
 
 <body>
   <main class="page">
-    <header class="topbar">
-      <div class="brand">
+    <header class="simple-header">
+      <div class="simple-title">
         <div class="logo">AYDA</div>
-        <div>
-          <h1>Yönetici Link Paneli</h1>
-          <p>Form, ödeme, sınav, materyal, banka ve şirket bilgileri — hızlı aç / hızlı kopyala.</p>
-        </div>
-      </div>
-
-      <div class="quick-actions">
-        <a class="quick-btn primary" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer">Kayıt Öğrenci Formu</a>
-        <a class="quick-btn" href="https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO" target="_blank" rel="noopener noreferrer">Online Ödeme</a>
-        <a class="quick-btn" href="https://onurqlp.github.io/sinifaciklama/" target="_blank" rel="noopener noreferrer">Sınıf Açıklamaları</a>
+        <h1>Yönetici Link Paneli</h1>
       </div>
     </header>
-
-    <div class="admin-note">
-      Bu sayfa öğrenciye gönderilecek tanıtım sayfası değil; AYDA yöneticileri için günlük operasyon linklerini tek yerden açmak ve kopyalamak amacıyla hazırlanmıştır. Kategoriler kalabalık görünmemesi için bas-aç şeklindedir.
-    </div>
-
-    <div class="helper-strip">
-      <div class="helper-card">
-        <strong>1. Kategoriye bas</strong>
-        <span>İlgili linkler aşağı açılır.</span>
-      </div>
-      <div class="helper-card">
-        <strong>2. Aç</strong>
-        <span>Sayfayı yeni sekmede açar.</span>
-      </div>
-      <div class="helper-card">
-        <strong>3. Linki kopyala</strong>
-        <span>WhatsApp / mail için hızlı kopyalar.</span>
-      </div>
-      <div class="helper-card">
-        <strong>4. Bilgileri kopyala</strong>
-        <span>IBAN, şirket ve adres bilgileri hazırdır.</span>
-      </div>
-    </div>
 
     <div class="layout">
       <div>
@@ -529,7 +425,7 @@
               <div class="chevron">›</div>
               <h2>En Sık Kullanılanlar</h2>
             </div>
-            <span class="desc">Günlük operasyon linkleri</span>
+            <span class="desc">Form, ödeme ve temel sayfalar</span>
           </summary>
 
           <div class="link-list">
@@ -543,7 +439,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-kayit-ogrenci')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-kayit-ogrenci')">Kopyala</button>
               </div>
             </div>
 
@@ -557,7 +453,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-odeme')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-odeme')">Kopyala</button>
               </div>
             </div>
 
@@ -571,7 +467,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://forms.gle/aPwHN7zHt4JrzrrY7" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-telc-form')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-telc-form')">Kopyala</button>
               </div>
             </div>
 
@@ -585,7 +481,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://forms.gle/1NEU3YzrZ8FdfDVs6" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-musteri-form')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-musteri-form')">Kopyala</button>
               </div>
             </div>
 
@@ -599,7 +495,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/sinifaciklama/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinif-aciklamalari')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-sinif-aciklamalari')">Kopyala</button>
               </div>
             </div>
           </div>
@@ -611,7 +507,7 @@
               <div class="chevron">›</div>
               <h2>Sınav Operasyon Linkleri</h2>
             </div>
-            <span class="desc">Sınav öncesi / sonrası kullanım</span>
+            <span class="desc">Sınav öncesi / sonrası</span>
           </summary>
 
           <div class="link-list">
@@ -625,7 +521,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/sinavgiris" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinav-giris')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-sinav-giris')">Kopyala</button>
               </div>
             </div>
 
@@ -639,7 +535,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/telcbilgi/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-telc-bilgi')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-telc-bilgi')">Kopyala</button>
               </div>
             </div>
 
@@ -653,7 +549,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/A2telc/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-a2-sinav')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-a2-sinav')">Kopyala</button>
               </div>
             </div>
 
@@ -667,7 +563,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/SEVIYEBELIRLEME/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-seviye')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-seviye')">Kopyala</button>
               </div>
             </div>
 
@@ -681,7 +577,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://www.aydadil.com/sinavhazirlik/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinav-hazirlik')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-sinav-hazirlik')">Kopyala</button>
               </div>
             </div>
           </div>
@@ -700,20 +596,6 @@
             <div class="link-row">
               <div class="link-info">
                 <div class="link-title-line">
-                  <span class="link-title">Sınıf Açıklamaları Ana Sayfası</span>
-                  <span class="badge purple">Sınıf</span>
-                </div>
-                <div class="link-url" id="url-sinif-aciklama-2">https://onurqlp.github.io/sinifaciklama/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/sinifaciklama/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinif-aciklama-2')">Linki Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
                   <span class="link-title">Almanca Döküman Drive Klasörü</span>
                   <span class="badge purple">Drive</span>
                 </div>
@@ -721,7 +603,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://drive.google.com/drive/folders/1f_hcAbJutST1FNYAaZkQoM9Cwi3v1cKe?usp=drive_link" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-almanca-dokuman')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-almanca-dokuman')">Kopyala</button>
               </div>
             </div>
 
@@ -735,7 +617,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://www.aydadil.com/ogretmen/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-ogretmen')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-ogretmen')">Kopyala</button>
               </div>
             </div>
 
@@ -749,7 +631,7 @@
               </div>
               <div class="row-actions">
                 <a class="action" href="https://onurqlp.github.io/derskitaplari/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-ders-materyalleri')">Linki Kopyala</button>
+                <button class="copy-btn" onclick="copyText('url-ders-materyalleri')">Kopyala</button>
               </div>
             </div>
           </div>
