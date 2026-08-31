@@ -731,6 +731,114 @@
       .bulk-copy-btn strong { font-size: 13px; }
       .bank-section { order: -1; }
     }
+
+
+    /* Sık kullanılan sabit mesaj kartları */
+    .message-card {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+      background: #fff;
+    }
+
+    .message-card:last-child {
+      border-bottom: 0;
+    }
+
+    .message-card.is-hidden {
+      display: none !important;
+    }
+
+    .message-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .message-card-title {
+      min-width: 0;
+    }
+
+    .message-card-title .link-title-line {
+      margin-bottom: 2px;
+    }
+
+    .message-card-subtitle {
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 650;
+    }
+
+    .message-actions {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    details.message-details {
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      overflow: hidden;
+      background: #fbfcff;
+    }
+
+    details.message-details > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 10px 12px;
+      color: var(--ayda);
+      font-size: 12.5px;
+      font-weight: 850;
+      user-select: none;
+    }
+
+    details.message-details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.message-details > summary::after {
+      content: ' ↓';
+    }
+
+    details.message-details[open] > summary::after {
+      content: ' ↑';
+    }
+
+    .message-text {
+      margin: 0;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text);
+      background: #fff;
+    }
+
+    @media (max-width: 620px) {
+      .message-card {
+        padding: 13px;
+      }
+
+      .message-card-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .message-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .message-actions .copy-btn {
+        min-height: 44px;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -756,6 +864,129 @@
 <div class="layout"><div>
 
 
+<details class="section" open="">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Sık Kullanılanlar</h2>
+</div>
+<span class="desc">Yeni sınıf linkleri ve hazır duyurular</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen içerik bulunamadı.</div>
+
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">A1 Yeni Sınıf / Tekrar Sayfası</span>
+<span class="badge green">A1</span>
+</div>
+<div class="link-url" id="url-a1-ayda">https://www.aydadil.com/a1ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/a1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a1-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">A2 Yeni Sınıf / Tekrar Sayfası</span>
+<span class="badge orange">A2</span>
+</div>
+<div class="link-url" id="url-a2-ayda">https://www.aydadil.com/a2ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/a2ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a2-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">B1 Yeni Sınıf / Tekrar Sayfası</span>
+<span class="badge purple">B1</span>
+</div>
+<div class="link-url" id="url-b1-ayda">https://www.aydadil.com/b1ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/b1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-b1-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+
+<div class="message-card">
+<div class="message-card-head">
+<div class="message-card-title">
+<div class="link-title-line">
+<span class="link-title">A1 Tekrar Sayfası Duyurusu</span>
+<span class="badge green">Sabit Mesaj</span>
+</div>
+<div class="message-card-subtitle">Yeni A1 sınıfına gönderilecek hazır öğrenci mesajı</div>
+</div>
+<div class="message-actions">
+<button class="copy-btn" onclick="copyText('msg-a1-duyuru')" type="button">Mesajı Kopyala</button>
+</div>
+</div>
+<details class="message-details">
+<summary>Mesajı göster</summary>
+<pre class="message-text" id="msg-a1-duyuru">Sayın öğrencilerimiz,
+
+A1 tekrarlarınız için yeni alıştırma sayfamız hazır. 🇩🇪
+
+🔗 https://www.aydadil.com/a1ayda/
+
+
+Sınıf Kodu:  200726
+
+Sitede:
+* 24 ünite
+* Kısa konu anlatımları
+* Her ünite için alıştırmalar
+* Tekrar videoları
+* Yanlış soruları tekrar çözme
+* Goethe ve ÖSD A1 mini sınav çalışmaları
+
+📌 Derste hangi üniteyi işlediysek, siteden aynı üniteyi açıp alıştırmaları çözmeniz yeterli.
+
+Arbeitsbuch çalışmalarına da normal şekilde devam ediyoruz. Site, dersleri tekrar etmek ve konuları pekiştirmek için ek çalışma alanıdır.
+
+İyi çalışmalar. 🌿
+AYDA Dil Akademisi</pre>
+</details>
+</div>
+
+<div class="message-card">
+<div class="message-card-head">
+<div class="message-card-title">
+<div class="link-title-line">
+<span class="link-title">Zoom İndirme Duyurusu</span>
+<span class="badge purple">Sabit Mesaj</span>
+</div>
+<div class="message-card-subtitle">Derse katılım öncesi cihazlara göre indirme bağlantıları</div>
+</div>
+<div class="message-actions">
+<button class="copy-btn" onclick="copyText('msg-zoom-duyuru')" type="button">Mesajı Kopyala</button>
+</div>
+</div>
+<details class="message-details">
+<summary>Mesajı göster</summary>
+<pre class="message-text" id="msg-zoom-duyuru">Derse katılmadan önce, cihazınıza uygun Zoom uygulamasını indirmenizi önemle tavsiye ederiz:
+
+Android için: [https://play.google.com/store/apps/details?id=us.zoom.videomeetings]
+
+iOS için: [https://itunes.apple.com/us/app/id546505307]
+
+Mac için: [https://zoom.us/download?os=mac]
+
+Bilgisayar için: [https://zoom.us/download]</pre>
+</details>
+</div>
+
+</div>
+</details>
 <details class="section" open="">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
@@ -790,6 +1021,19 @@
 <div class="row-actions">
 <a class="action" href="https://forms.gle/1NEU3YzrZ8FdfDVs6" rel="noopener noreferrer" target="_blank">Aç ↗</a>
 <button class="copy-btn" onclick="copyText('url-musteri-form')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">AYDA Fiyat Hesaplayıcı</span>
+<span class="badge orange">Fiyat</span>
+</div>
+<div class="link-url" id="url-fiyat-hesaplayici">https://onurqlp.github.io/fiyat/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/fiyat/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-fiyat-hesaplayici')" type="button">Kopyala</button>
 </div>
 </div>
 <div class="link-row">
@@ -1166,22 +1410,22 @@
       const sections = document.querySelectorAll('details.section');
 
       sections.forEach(section => {
-        const rows = Array.from(section.querySelectorAll('.link-row'));
+        const items = Array.from(section.querySelectorAll('.link-row, .message-card'));
         const hasCopyPanel = !!section.querySelector('.copy-panel');
-        const sectionText = normalizeText(section.innerText);
-        let visibleRows = 0;
+        const sectionText = normalizeText(section.textContent);
+        let visibleItems = 0;
 
-        if (rows.length) {
-          rows.forEach(row => {
-            const match = !query || normalizeText(row.innerText).includes(query);
-            row.classList.toggle('is-hidden', !match);
-            if (match) visibleRows += 1;
+        if (items.length) {
+          items.forEach(item => {
+            const match = !query || normalizeText(item.textContent).includes(query);
+            item.classList.toggle('is-hidden', !match);
+            if (match) visibleItems += 1;
           });
 
           const empty = section.querySelector('.empty-state');
-          if (empty) empty.classList.toggle('show', !!query && visibleRows === 0);
+          if (empty) empty.classList.toggle('show', !!query && visibleItems === 0);
 
-          const sectionMatches = !query || visibleRows > 0 || sectionText.includes(query);
+          const sectionMatches = !query || visibleItems > 0 || sectionText.includes(query);
           section.classList.toggle('section-hidden', !sectionMatches);
           if (query && sectionMatches) section.open = true;
         } else if (hasCopyPanel) {
