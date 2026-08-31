@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AYDA Yönetici Link Paneli</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#234078" name="theme-color"/>
+<meta content="AYDA Dil Akademisi yönetici link paneli" name="description"/>
+<title>AYDA Yönetici Link Paneli</title>
+<style>
     :root {
       --ayda: #234078;
       --ayda-dark: #162a50;
@@ -405,336 +407,648 @@
         white-space: normal;
       }
     }
-  </style>
+
+
+    /* Responsive usability enhancements */
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 280px;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button,
+    input,
+    summary,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(35, 64, 120, .28);
+      outline-offset: 2px;
+    }
+
+    .simple-header-copy {
+      min-width: 0;
+    }
+
+    .simple-subtitle {
+      margin-top: 5px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .tools {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto auto;
+      gap: 8px;
+      padding: 9px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(223, 230, 241, .96);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 10px 28px rgba(23, 32, 51, .08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .search-wrap {
+      position: relative;
+      min-width: 0;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fbfcff;
+      color: var(--text);
+      padding: 10px 12px 10px 38px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #98a2b3;
+      font-weight: 650;
+    }
+
+    .search-input:focus {
+      border-color: rgba(35, 64, 120, .45);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(35, 64, 120, .08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .tool-btn {
+      min-height: 44px;
+      border: 0;
+      border-radius: 12px;
+      padding: 9px 13px;
+      background: var(--soft);
+      color: var(--ayda);
+      font-weight: 850;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .18s ease;
+    }
+
+    .tool-btn:hover {
+      transform: translateY(-1px);
+      background: #e4ebfb;
+    }
+
+    .section-hidden,
+    .link-row.is-hidden {
+      display: none !important;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 22px 16px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 750;
+      font-size: 13px;
+    }
+
+    .empty-state.show {
+      display: block;
+    }
+
+    .action,
+    .copy-btn {
+      min-height: 42px;
+    }
+
+    .action:active,
+    .copy-btn:active,
+    .tool-btn:active {
+      transform: translateY(0) scale(.985);
+    }
+
+    summary.section-head {
+      min-height: 58px;
+    }
+
+    @media (hover: none) {
+      .action:hover,
+      .copy-btn:hover,
+      .tool-btn:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .tools {
+        grid-template-columns: 1fr 1fr;
+        top: 6px;
+      }
+
+      .search-wrap {
+        grid-column: 1 / -1;
+      }
+
+      .tool-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding-left: max(9px, env(safe-area-inset-left));
+        padding-right: max(9px, env(safe-area-inset-right));
+        padding-bottom: max(26px, env(safe-area-inset-bottom));
+      }
+
+      .simple-title {
+        width: 100%;
+      }
+
+      .simple-header-copy {
+        flex: 1;
+      }
+
+      .simple-subtitle {
+        font-size: 12px;
+      }
+
+      .tools {
+        border-radius: 14px;
+        padding: 7px;
+        margin-bottom: 10px;
+      }
+
+      details.section {
+        margin-bottom: 10px;
+        border-radius: 16px;
+      }
+
+      summary.section-head {
+        min-height: 56px;
+        padding: 13px;
+      }
+
+      .section-head h2 {
+        font-size: 16px;
+      }
+
+      .link-title {
+        font-size: 15px;
+      }
+
+      .link-url {
+        font-size: 11.75px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .row-actions {
+        gap: 7px;
+      }
+
+      .action,
+      .copy-btn {
+        min-height: 46px;
+        border-radius: 11px;
+        font-size: 13px;
+      }
+
+      .copy-panel {
+        padding: 11px;
+      }
+
+      .copy-line {
+        padding: 12px;
+      }
+
+      .toast {
+        bottom: max(14px, env(safe-area-inset-bottom));
+        max-width: calc(100vw - 24px);
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .simple-header {
+        padding: 14px;
+      }
+
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .tools {
+        grid-template-columns: 1fr;
+      }
+
+      .search-wrap {
+        grid-column: auto;
+      }
+
+      .row-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head span.desc {
+        padding-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+  
+
+    .bulk-copy-btn {
+      width: 100%;
+      min-height: 58px;
+      border: 0;
+      border-radius: 14px;
+      padding: 11px 13px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-align: left;
+      background: linear-gradient(135deg, var(--ayda), var(--ayda-dark));
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(35, 64, 120, .16);
+      transition: .18s ease;
+    }
+
+    .bulk-copy-btn:hover { transform: translateY(-1px); }
+    .bulk-copy-btn:active { transform: scale(.99); }
+    .bulk-copy-btn.secondary { background: #eef3ff; color: var(--ayda); box-shadow: none; border: 1px solid #dbe5fb; }
+    .bulk-copy-icon { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,.14); font-size: 18px; }
+    .bulk-copy-btn.secondary .bulk-copy-icon { background: #fff; }
+    .bulk-copy-btn span:last-child { min-width: 0; display: grid; gap: 1px; }
+    .bulk-copy-btn strong { font-size: 13.5px; line-height: 1.25; }
+    .bulk-copy-btn small { font-size: 11.5px; line-height: 1.25; opacity: .76; font-weight: 650; }
+
+    @media (max-width: 620px) {
+      .bulk-copy-btn { min-height: 62px; border-radius: 12px; }
+      .bulk-copy-btn strong { font-size: 13px; }
+      .bank-section { order: -1; }
+    }
+</style>
 </head>
-
 <body>
-  <main class="page">
-    <header class="simple-header">
-      <div class="simple-title">
-        <div class="logo">AYDA</div>
-        <h1>Yönetici Link Paneli</h1>
-      </div>
-    </header>
+<main class="page">
+<header class="simple-header">
+<div class="simple-title">
+<div aria-hidden="true" class="logo">AYDA</div>
+<div class="simple-header-copy">
+<h1>Yönetici Link Paneli</h1>
+<div class="simple-subtitle">Kayıt, ödeme, öğrenci, sınav ve kurum işlemleri tek ekranda.</div>
+</div>
+</div>
+</header>
+<div aria-label="Panel araçları" class="tools" role="search">
+<div class="search-wrap">
+<span aria-hidden="true" class="search-icon">⌕</span>
+<input aria-label="Panelde ara" autocomplete="off" class="search-input" id="panelSearch" inputmode="search" placeholder="Link veya bölüm ara…" type="search"/>
+</div>
 
-    <div class="layout">
-      <div>
-        <details class="section" open>
-          <summary class="section-head">
-            <div class="section-title-wrap">
-              <div class="chevron">›</div>
-              <h2>En Sık Kullanılanlar</h2>
-            </div>
-            <span class="desc">Form, ödeme ve temel sayfalar</span>
-          </summary>
 
-          <div class="link-list">
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Kayıt Olan Öğrenci Formu</span>
-                  <span class="badge green">Kayıt</span>
-                </div>
-                <div class="link-url" id="url-kayit-ogrenci">https://forms.gle/B2muBd2WMMezVFgK8</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-kayit-ogrenci')">Kopyala</button>
-              </div>
-            </div>
+<button class="tool-btn" onclick="goToBank()" type="button">Banka Bilgileri</button>
+<button class="tool-btn" id="toggleSectionsBtn" onclick="toggleAllSections()" type="button">Tümünü Aç</button></div>
+<div class="layout"><div>
 
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Online Ödeme Linki</span>
-                  <span class="badge green">Ödeme</span>
-                </div>
-                <div class="link-url" id="url-odeme">https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-odeme')">Kopyala</button>
-              </div>
-            </div>
 
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">TELC Sınav Kayıt Formu</span>
-                  <span class="badge red">TELC</span>
-                </div>
-                <div class="link-url" id="url-telc-form">https://forms.gle/aPwHN7zHt4JrzrrY7</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://forms.gle/aPwHN7zHt4JrzrrY7" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-telc-form')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Müşteri Bilgi Formu</span>
-                  <span class="badge">Müşteri</span>
-                </div>
-                <div class="link-url" id="url-musteri-form">https://forms.gle/1NEU3YzrZ8FdfDVs6</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://forms.gle/1NEU3YzrZ8FdfDVs6" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-musteri-form')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Sınıf Açıklamaları</span>
-                  <span class="badge purple">Sınıf</span>
-                </div>
-                <div class="link-url" id="url-sinif-aciklamalari">https://onurqlp.github.io/sinifaciklama/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/sinifaciklama/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinif-aciklamalari')">Kopyala</button>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="section">
-          <summary class="section-head">
-            <div class="section-title-wrap">
-              <div class="chevron">›</div>
-              <h2>Sınav Operasyon Linkleri</h2>
-            </div>
-            <span class="desc">Sınav öncesi / sonrası</span>
-          </summary>
-
-          <div class="link-list">
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Sınav Giriş Belgesi</span>
-                  <span class="badge orange">Belge</span>
-                </div>
-                <div class="link-url" id="url-sinav-giris">https://onurqlp.github.io/sinavgiris</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/sinavgiris" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinav-giris')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Sınav Hakkında Tüm Bilgiler</span>
-                  <span class="badge purple">Bilgi</span>
-                </div>
-                <div class="link-url" id="url-telc-bilgi">https://onurqlp.github.io/telcbilgi/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/telcbilgi/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-telc-bilgi')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">A2 Sınav Sayfası</span>
-                  <span class="badge red">A2</span>
-                </div>
-                <div class="link-url" id="url-a2-sinav">https://onurqlp.github.io/A2telc/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/A2telc/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-a2-sinav')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Seviye Belirleme / Sınavlar</span>
-                  <span class="badge">Sınavlar</span>
-                </div>
-                <div class="link-url" id="url-seviye">https://onurqlp.github.io/SEVIYEBELIRLEME/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/SEVIYEBELIRLEME/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-seviye')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Sınav Hazırlık Sitesi</span>
-                  <span class="badge green">Hazırlık</span>
-                </div>
-                <div class="link-url" id="url-sinav-hazirlik">https://www.aydadil.com/sinavhazirlik/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://www.aydadil.com/sinavhazirlik/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-sinav-hazirlik')">Kopyala</button>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="section">
-          <summary class="section-head">
-            <div class="section-title-wrap">
-              <div class="chevron">›</div>
-              <h2>Materyal ve İç Kullanım</h2>
-            </div>
-            <span class="desc">Drive / öğretmen / ders içerikleri</span>
-          </summary>
-
-          <div class="link-list">
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Almanca Döküman Drive Klasörü</span>
-                  <span class="badge purple">Drive</span>
-                </div>
-                <div class="link-url" id="url-almanca-dokuman">https://drive.google.com/drive/folders/1f_hcAbJutST1FNYAaZkQoM9Cwi3v1cKe?usp=drive_link</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://drive.google.com/drive/folders/1f_hcAbJutST1FNYAaZkQoM9Cwi3v1cKe?usp=drive_link" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-almanca-dokuman')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Öğretmen Sitesi</span>
-                  <span class="badge">Öğretmen</span>
-                </div>
-                <div class="link-url" id="url-ogretmen">https://www.aydadil.com/ogretmen/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://www.aydadil.com/ogretmen/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-ogretmen')">Kopyala</button>
-              </div>
-            </div>
-
-            <div class="link-row">
-              <div class="link-info">
-                <div class="link-title-line">
-                  <span class="link-title">Ders Materyalleri</span>
-                  <span class="badge green">Materyal</span>
-                </div>
-                <div class="link-url" id="url-ders-materyalleri">https://onurqlp.github.io/derskitaplari/</div>
-              </div>
-              <div class="row-actions">
-                <a class="action" href="https://onurqlp.github.io/derskitaplari/" target="_blank" rel="noopener noreferrer">Aç ↗</a>
-                <button class="copy-btn" onclick="copyText('url-ders-materyalleri')">Kopyala</button>
-              </div>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <aside>
-        <details class="section">
-          <summary class="section-head">
-            <div class="section-title-wrap">
-              <div class="chevron">›</div>
-              <h2>Banka Bilgileri</h2>
-            </div>
-            <span class="desc">Kopyalanabilir</span>
-          </summary>
-
-          <div class="copy-panel">
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">IBAN</span>
-                <div class="copy-text" id="iban">TR76 0006 2000 4110 0006 2883 30</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('iban')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Alıcı</span>
-                <div class="copy-text" id="alici">Sami Onuralp Özkan Esra Çalt Adi Ortaklığı</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('alici')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Banka</span>
-                <div class="copy-text" id="banka">Garanti Bankası</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('banka')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Açıklama Notu</span>
-                <div class="copy-text" id="aciklama-notu">Açıklamaya tam isminizi ve telefon numaranızı yazınız.</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('aciklama-notu')">Kopyala</button>
-            </div>
-
-            <div class="note">Öğrenciye banka bilgisi gönderirken açıklama notunu da ekleyin.</div>
-          </div>
-        </details>
-
-        <details class="section">
-          <summary class="section-head">
-            <div class="section-title-wrap">
-              <div class="chevron">›</div>
-              <h2>Şirket Bilgileri</h2>
-            </div>
-            <span class="desc">Fatura / resmi işlem</span>
-          </summary>
-
-          <div class="copy-panel">
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Şirket İsmi</span>
-                <div class="copy-text" id="sirket">Sami Onuralp Özkan ve Esra Çalt Adi Ortaklığı</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('sirket')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Vergi No</span>
-                <div class="copy-text" id="vergiNo">7421166532</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('vergiNo')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Vergi Dairesi</span>
-                <div class="copy-text" id="vergiDairesi">Mithatpaşa VD</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('vergiDairesi')">Kopyala</button>
-            </div>
-
-            <div class="copy-line">
-              <div>
-                <span class="copy-label">Adres</span>
-                <div class="copy-text" id="adres">Kızılay Mah. Necatibey Cad. 17/7 Çankaya Ankara</div>
-              </div>
-              <button class="copy-btn" onclick="copyText('adres')">Kopyala</button>
-            </div>
-          </div>
-        </details>
-      </aside>
-    </div>
-  </main>
-
-  <div class="toast" id="toast">Kopyalandı</div>
-
-  <script>
+<details class="section" open="">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Kayıt &amp; Ödeme</h2>
+</div>
+<span class="desc">Yeni kayıt, müşteri ve tahsilat</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Kayıt Olan Öğrenci Formu</span>
+<span class="badge green">Kayıt</span>
+</div>
+<div class="link-url" id="url-kayit-ogrenci">https://forms.gle/B2muBd2WMMezVFgK8</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://forms.gle/B2muBd2WMMezVFgK8" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-kayit-ogrenci')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Müşteri Bilgi Formu</span>
+<span class="badge">Müşteri</span>
+</div>
+<div class="link-url" id="url-musteri-form">https://forms.gle/1NEU3YzrZ8FdfDVs6</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://forms.gle/1NEU3YzrZ8FdfDVs6" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-musteri-form')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Online Ödeme Linki</span>
+<span class="badge green">Ödeme</span>
+</div>
+<div class="link-url" id="url-odeme">https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-odeme')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details><details class="section" open="">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Sınav &amp; TELC Operasyonu</h2>
+</div>
+<span class="desc">Kayıttan hazırlığa tüm sınav süreci</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">TELC Sınav Kayıt Formu</span>
+<span class="badge red">TELC</span>
+</div>
+<div class="link-url" id="url-telc-form">https://forms.gle/aPwHN7zHt4JrzrrY7</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://forms.gle/aPwHN7zHt4JrzrrY7" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-telc-form')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Sınav Giriş Belgesi</span>
+<span class="badge orange">Belge</span>
+</div>
+<div class="link-url" id="url-sinav-giris">https://onurqlp.github.io/sinavgiris</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/sinavgiris" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-sinav-giris')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Sınav Hakkında Tüm Bilgiler</span>
+<span class="badge purple">Bilgi</span>
+</div>
+<div class="link-url" id="url-telc-bilgi">https://onurqlp.github.io/telcbilgi/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/telcbilgi/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-telc-bilgi')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Seviye Belirleme / Sınavlar</span>
+<span class="badge">Sınavlar</span>
+</div>
+<div class="link-url" id="url-seviye">https://onurqlp.github.io/SEVIYEBELIRLEME/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/SEVIYEBELIRLEME/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-seviye')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">A2 Sınav Sayfası</span>
+<span class="badge red">A2</span>
+</div>
+<div class="link-url" id="url-a2-sinav">https://onurqlp.github.io/A2telc/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/A2telc/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a2-sinav')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Sınav Hazırlık Sitesi</span>
+<span class="badge green">Hazırlık</span>
+</div>
+<div class="link-url" id="url-sinav-hazirlik">https://www.aydadil.com/sinavhazirlik/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/sinavhazirlik/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-sinav-hazirlik')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details><details class="section">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Öğrenci &amp; Kurs İşlemleri</h2>
+</div>
+<span class="desc">Kurs sayfaları ve belgeler</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Sınıf Açıklamaları</span>
+<span class="badge purple">Sınıf</span>
+</div>
+<div class="link-url" id="url-sinif-aciklamalari">https://onurqlp.github.io/sinifaciklama/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/sinifaciklama/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-sinif-aciklamalari')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Kurs Katılım Belgesi</span>
+<span class="badge orange">Belge</span>
+</div>
+<div class="link-url" id="url-kurs-katilim">https://onurqlp.github.io/kurskatilim/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/kurskatilim/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-kurs-katilim')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Öğrenci Paneli Demo / Tanıtım</span>
+<span class="badge green">Demo</span>
+</div>
+<div class="link-url" id="url-ogrenci-demo">https://www.aydadil.com/deneme</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/deneme" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-ogrenci-demo')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details><details class="section">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Öğretmen &amp; Materyal</h2>
+</div>
+<span class="desc">Ders içerikleri ve iç kullanım</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Öğretmen Sitesi</span>
+<span class="badge">Öğretmen</span>
+</div>
+<div class="link-url" id="url-ogretmen">https://www.aydadil.com/ogretmen/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/ogretmen/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-ogretmen')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Ders Materyalleri</span>
+<span class="badge green">Materyal</span>
+</div>
+<div class="link-url" id="url-ders-materyalleri">https://onurqlp.github.io/derskitaplari/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/derskitaplari/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-ders-materyalleri')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">Almanca Döküman Drive Klasörü</span>
+<span class="badge purple">Drive</span>
+</div>
+<div class="link-url" id="url-almanca-dokuman">https://drive.google.com/drive/folders/1f_hcAbJutST1FNYAaZkQoM9Cwi3v1cKe?usp=drive_link</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://drive.google.com/drive/folders/1f_hcAbJutST1FNYAaZkQoM9Cwi3v1cKe?usp=drive_link" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-almanca-dokuman')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details></div><aside><details class="section bank-section" id="bank-section" open="">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Banka &amp; Ödeme Bilgileri</h2>
+</div>
+<span class="desc">Tek tek veya toplu kopyala</span>
+</summary>
+<div class="copy-panel">
+<button class="bulk-copy-btn" onclick="copyBankInfo()" type="button">
+<span aria-hidden="true" class="bulk-copy-icon">⧉</span>
+<span><strong>Tüm Banka Bilgilerini Kopyala</strong><small>Öğrenciye göndermeye hazır metin</small></span>
+</button>
+<div class="copy-line">
+<div><span class="copy-label">IBAN</span><div class="copy-text" id="iban">TR76 0006 2000 4110 0006 2883 30</div></div>
+<button class="copy-btn" onclick="copyText('iban')" type="button">Kopyala</button>
+</div>
+<div class="copy-line">
+<div><span class="copy-label">Alıcı</span><div class="copy-text" id="alici">Sami Onuralp Özkan Esra Çalt Adi Ortaklığı</div></div>
+<button class="copy-btn" onclick="copyText('alici')" type="button">Kopyala</button>
+</div>
+<div class="copy-line">
+<div><span class="copy-label">Banka</span><div class="copy-text" id="banka">Garanti Bankası</div></div>
+<button class="copy-btn" onclick="copyText('banka')" type="button">Kopyala</button>
+</div>
+<div class="copy-line">
+<div><span class="copy-label">Açıklama Notu</span><div class="copy-text" id="aciklama-notu">Açıklamaya tam isminizi ve telefon numaranızı yazınız.</div></div>
+<button class="copy-btn" onclick="copyText('aciklama-notu')" type="button">Kopyala</button>
+</div>
+<div class="note">Toplu kopyalama butonu banka, alıcı, IBAN ve açıklama notunu tek mesaj halinde kopyalar.</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Şirket &amp; Fatura Bilgileri</h2>
+</div>
+<span class="desc">Resmi işlemler</span>
+</summary>
+<div class="copy-panel">
+<button class="bulk-copy-btn secondary" onclick="copyCompanyInfo()" type="button">
+<span aria-hidden="true" class="bulk-copy-icon">⧉</span>
+<span><strong>Tüm Şirket Bilgilerini Kopyala</strong><small>Fatura / resmi işlem için</small></span>
+</button>
+<div class="copy-line"><div><span class="copy-label">Şirket İsmi</span><div class="copy-text" id="sirket">Sami Onuralp Özkan ve Esra Çalt Adi Ortaklığı</div></div><button class="copy-btn" onclick="copyText('sirket')" type="button">Kopyala</button></div>
+<div class="copy-line"><div><span class="copy-label">Vergi No</span><div class="copy-text" id="vergiNo">7421166532</div></div><button class="copy-btn" onclick="copyText('vergiNo')" type="button">Kopyala</button></div>
+<div class="copy-line"><div><span class="copy-label">Vergi Dairesi</span><div class="copy-text" id="vergiDairesi">Mithatpaşa VD</div></div><button class="copy-btn" onclick="copyText('vergiDairesi')" type="button">Kopyala</button></div>
+<div class="copy-line"><div><span class="copy-label">Adres</span><div class="copy-text" id="adres">Kızılay Mah. Necatibey Cad. 17/7 Çankaya Ankara</div></div><button class="copy-btn" onclick="copyText('adres')" type="button">Kopyala</button></div>
+</div>
+</details></aside></div>
+</main>
+<div class="toast" id="toast">Kopyalandı</div>
+<script>
     function copyText(id) {
       const element = document.getElementById(id);
       if (!element) return;
@@ -761,11 +1075,136 @@
       }
     }
 
-    function showToast() {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1300);
+
+
+    function copyRawText(text, message = 'Kopyalandı') {
+      const done = () => showToast(message);
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
     }
+
+    function fallbackCopy(text, done) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(textarea);
+      if (done) done();
+    }
+
+    function copyBankInfo() {
+      const text = [
+        'AYDA Dil Akademisi – Banka Bilgileri',
+        '',
+        'Banka: ' + document.getElementById('banka').innerText.trim(),
+        'Alıcı: ' + document.getElementById('alici').innerText.trim(),
+        'IBAN: ' + document.getElementById('iban').innerText.trim(),
+        '',
+        document.getElementById('aciklama-notu').innerText.trim()
+      ].join('\n');
+      copyRawText(text, 'Banka bilgileri toplu kopyalandı');
+    }
+
+    function copyCompanyInfo() {
+      const text = [
+        'AYDA Dil Akademisi – Şirket Bilgileri',
+        '',
+        'Şirket: ' + document.getElementById('sirket').innerText.trim(),
+        'Vergi No: ' + document.getElementById('vergiNo').innerText.trim(),
+        'Vergi Dairesi: ' + document.getElementById('vergiDairesi').innerText.trim(),
+        'Adres: ' + document.getElementById('adres').innerText.trim()
+      ].join('\n');
+      copyRawText(text, 'Şirket bilgileri toplu kopyalandı');
+    }
+
+    function showToast(message = 'Kopyalandı') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 1300);
+    }
+
+    function setAllSections(open) {
+      document.querySelectorAll('details.section').forEach(section => {
+        if (!section.classList.contains('section-hidden')) section.open = open;
+      });
+      const button = document.getElementById('toggleSectionsBtn');
+      if (button) button.textContent = open ? 'Tümünü Kapat' : 'Tümünü Aç';
+    }
+
+    function toggleAllSections() {
+      const visibleSections = Array.from(document.querySelectorAll('details.section:not(.section-hidden)'));
+      const shouldOpen = visibleSections.some(section => !section.open);
+      setAllSections(shouldOpen);
+    }
+
+    function goToBank() {
+      const bank = document.getElementById('bank-section');
+      if (!bank) return;
+      bank.open = true;
+      bank.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function normalizeText(value) {
+      return (value || '')
+        .toLocaleLowerCase('tr-TR')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function filterPanel() {
+      const input = document.getElementById('panelSearch');
+      const query = normalizeText(input.value.trim());
+      const sections = document.querySelectorAll('details.section');
+
+      sections.forEach(section => {
+        const rows = Array.from(section.querySelectorAll('.link-row'));
+        const hasCopyPanel = !!section.querySelector('.copy-panel');
+        const sectionText = normalizeText(section.innerText);
+        let visibleRows = 0;
+
+        if (rows.length) {
+          rows.forEach(row => {
+            const match = !query || normalizeText(row.innerText).includes(query);
+            row.classList.toggle('is-hidden', !match);
+            if (match) visibleRows += 1;
+          });
+
+          const empty = section.querySelector('.empty-state');
+          if (empty) empty.classList.toggle('show', !!query && visibleRows === 0);
+
+          const sectionMatches = !query || visibleRows > 0 || sectionText.includes(query);
+          section.classList.toggle('section-hidden', !sectionMatches);
+          if (query && sectionMatches) section.open = true;
+        } else if (hasCopyPanel) {
+          const match = !query || sectionText.includes(query);
+          section.classList.toggle('section-hidden', !match);
+          if (query && match) section.open = true;
+        }
+      });
+    }
+
+    document.getElementById('panelSearch').addEventListener('input', filterPanel);
+
+    document.addEventListener('keydown', event => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        document.getElementById('panelSearch').focus();
+      }
+      if (event.key === 'Escape' && document.activeElement === document.getElementById('panelSearch')) {
+        document.getElementById('panelSearch').value = '';
+        filterPanel();
+        document.getElementById('panelSearch').blur();
+      }
+    });
   </script>
 </body>
 </html>
