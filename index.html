@@ -889,6 +889,55 @@ section[id],details[id]{scroll-margin-top:18px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.link-row,.quick-link{transition:none}}
 
+
+/* Task-first AYDA management dashboard */
+.operations{margin-bottom:14px}
+.operations-title{display:flex;align-items:baseline;justify-content:space-between;gap:9px;flex-wrap:wrap;margin:0 0 10px;padding:0 3px}
+.operations-title strong{font-size:15px;color:#102541;letter-spacing:-.25px}
+.operations-title span{font-size:11.5px;color:#728096}
+.operations-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.operation{min-width:0;background:#fff;border:1px solid #e7e6e0;border-radius:15px;padding:14px 12px;display:flex;gap:11px;align-items:center;text-align:left;color:#142a46;cursor:pointer;font-family:inherit;box-shadow:0 6px 18px rgba(16,37,65,.027);transition:border-color .15s,transform .15s}
+.operation:hover{border-color:#dac292;transform:translateY(-1px)}
+.operation-symbol{flex:none;width:39px;height:39px;display:grid;place-items:center;border-radius:11px;background:#f3eee3;color:#102541;font-size:16px;font-weight:850}
+.operation span:nth-child(2){min-width:0;flex:1}
+.operation strong{display:block;font-weight:800;font-size:13px;line-height:1.25}
+.operation small{display:block;font-size:11px;color:#6b7789;line-height:1.35;margin-top:4px}
+.operation-arrow{flex:none;color:#8b96a3;font-weight:850}
+.exam-inline-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 15px 10px;background:#fcfaf6;border-bottom:1px solid #eee9df}
+.exam-inline-head h3{font-size:14px;margin:0 0 2px;color:#102541;letter-spacing:-.2px}
+.exam-inline-head p{font-size:11.5px;color:#738094;margin:0}
+.exam-count{flex:none;border-radius:50px;background:#efe5d3;color:#634a22;padding:5px 9px;font-size:11px;font-weight:800}
+.exam-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:10px 13px 14px;background:#fcfaf6}
+.exam-grid .exam-link-row{border:1px solid #e7e6df;border-radius:13px;padding:13px;display:flex;flex-direction:column;align-items:stretch;gap:9px;background:#fff;min-width:0}
+.exam-grid .exam-link-row:hover{background:#fffefa}
+.exam-grid .exam-link-row .link-title{font-size:13px}
+.exam-grid .exam-link-row .link-title-line{gap:7px;min-height:28px}
+.exam-grid .exam-link-row .link-url{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.exam-link-type{font-size:11px;color:#8390a0;margin:2px 0 3px}
+.exam-grid .exam-link-row .row-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%}
+.exam-grid .exam-link-row .action,.exam-grid .exam-link-row .copy-btn{min-width:0;min-height:41px;display:flex;align-items:center;justify-content:center;white-space:normal;text-align:center;font-size:11.5px;padding:8px 6px}
+.exam-grid .exam-link-row .favorite-toggle{min-width:26px;min-height:26px;font-size:19px}
+.other-exams{border-top:1px solid #eee9df;border-bottom:1px solid #eee9df;margin-top:0}
+#section-repeat .link-list,#section-messages .link-list{background:#fff}
+#section-messages .message-card{border-bottom:0}
+@media(max-width:1100px){.operations-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+ .operations{margin-bottom:10px}
+ .operations-title span{display:none}
+ .operations-grid{gap:8px}
+ .operation{padding:11px 9px;gap:7px;border-radius:12px}
+ .operation-symbol{width:32px;height:32px;font-size:12px;border-radius:9px}
+ .operation strong{font-size:11.5px}
+ .operation small{font-size:10px}
+ .operation-arrow{display:none}
+ .exam-grid{grid-template-columns:1fr;padding:9px;gap:8px}
+ .exam-grid .exam-link-row{padding:12px}
+ .exam-grid .exam-link-row .row-actions{grid-template-columns:1fr 1fr}
+ .exam-inline-head{padding:13px 12px 10px}
+}
+@media(max-width:355px){.operations-grid{grid-template-columns:1fr}.operation{padding:12px}.operation strong{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.operation{transition:none}}
+
 </style>
 </head>
 <body>
@@ -903,6 +952,15 @@ section[id],details[id]{scroll-margin-top:18px}
 </div>
 </div>
 </header>
+<section class="operations" aria-label="Hızlı işlemler">
+<div class="operations-title"><strong>Bugün ne yapmak istiyorsunuz?</strong><span>En çok kullanılan yönetim işlemlerine kısa yol</span></div>
+<div class="operations-grid">
+<a class="operation" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer"><span class="operation-symbol" aria-hidden="true">＋</span><span><strong>Öğrenci Kaydı</strong><small>Kayıt formunu aç</small></span><span class="operation-arrow" aria-hidden="true">↗</span></a>
+<button class="operation" type="button" data-target="section-exams"><span class="operation-symbol" aria-hidden="true">A1</span><span><strong>Seviye Sınavı</strong><small>A1–C1 sınav linkleri</small></span><span class="operation-arrow" aria-hidden="true">↓</span></button>
+<a class="operation" href="https://onurqlp.github.io/kurskatilim/" target="_blank" rel="noopener noreferrer"><span class="operation-symbol" aria-hidden="true">▤</span><span><strong>Katılım Belgesi</strong><small>Belge düzenleme</small></span><span class="operation-arrow" aria-hidden="true">↗</span></a>
+<button class="operation" type="button" data-target="section-registration"><span class="operation-symbol" aria-hidden="true">₺</span><span><strong>Ödeme İşlemleri</strong><small>Ödeme linki ve kayıtlar</small></span><span class="operation-arrow" aria-hidden="true">↓</span></button>
+</div>
+</section>
 <div aria-label="Panel araçları" class="tools" role="search">
 <div class="search-wrap">
 <span aria-hidden="true" class="search-icon">⌕</span>
@@ -911,12 +969,13 @@ section[id],details[id]{scroll-margin-top:18px}
 <button class="tool-btn" onclick="goToBank()" type="button">Banka Bilgileri</button>
 <button class="tool-btn" id="toggleSectionsBtn" onclick="toggleAllSections()" type="button">Tümünü Aç</button></div>
 <nav class="quick-nav" aria-label="Bölümlere hızlı erişim">
-<button type="button" class="quick-link" data-target="section-frequent">★ Sık Kullanılanlar</button>
-<button type="button" class="quick-link" data-target="section-registration">Kayıt &amp; Ödeme</button>
+<button type="button" class="quick-link" data-target="section-registration">Kayıt ve Ödeme</button>
 <button type="button" class="quick-link" data-target="section-exams">Sınavlar</button>
 <button type="button" class="quick-link" data-target="section-students">Öğrenci İşlemleri</button>
+<button type="button" class="quick-link" data-target="section-repeat">Ders Tekrarları</button>
 <button type="button" class="quick-link" data-target="section-teachers">Öğretmen</button>
 <button type="button" class="quick-link" data-target="section-resources">Ek Kaynaklar</button>
+<button type="button" class="quick-link" data-target="section-messages">Hazır Mesajlar</button>
 <button type="button" class="quick-link" data-target="bank-section">Banka Bilgileri</button>
 </nav>
 <section class="favorites-panel" id="favoritesPanel" hidden aria-label="Favori bağlantılar">
@@ -924,149 +983,6 @@ section[id],details[id]{scroll-margin-top:18px}
 <div class="favorite-items" id="favoriteItems"></div>
 </section>
 <div class="layout"><div>
-<details class="section" open="" id="section-frequent">
-<summary class="section-head" tabindex="0">
-<div class="section-title-wrap">
-<div class="chevron">›</div>
-<h2>Sık Kullanılanlar</h2>
-</div>
-<span class="desc">Yeni sınıf linkleri ve hazır duyurular · 3 bağlantı</span>
-</summary>
-<div class="link-list">
-<div class="empty-state">Bu bölümde eşleşen içerik bulunamadı.</div>
-<div class="link-row">
-<div class="link-info">
-<div class="link-title-line">
-<span class="link-title">A1 Yeni Sınıf / Tekrar Sayfası</span>
-<span class="badge green">A1</span>
-</div>
-<div class="link-url" id="url-a1-ayda">https://www.aydadil.com/a1ayda/</div>
-</div>
-<div class="row-actions">
-<a class="action" href="https://www.aydadil.com/a1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
-<button class="copy-btn" onclick="copyText('url-a1-ayda')" type="button">Kopyala</button>
-</div>
-</div>
-<div class="link-row">
-<div class="link-info">
-<div class="link-title-line">
-<span class="link-title">A2 Yeni Sınıf / Tekrar Sayfası</span>
-<span class="badge orange">A2</span>
-</div>
-<div class="link-url" id="url-a2-ayda">https://www.aydadil.com/a2ayda/</div>
-</div>
-<div class="row-actions">
-<a class="action" href="https://www.aydadil.com/a2ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
-<button class="copy-btn" onclick="copyText('url-a2-ayda')" type="button">Kopyala</button>
-</div>
-</div>
-<div class="link-row">
-<div class="link-info">
-<div class="link-title-line">
-<span class="link-title">B1 Yeni Sınıf / Tekrar Sayfası</span>
-<span class="badge purple">B1</span>
-</div>
-<div class="link-url" id="url-b1-ayda">https://www.aydadil.com/b1ayda/</div>
-</div>
-<div class="row-actions">
-<a class="action" href="https://www.aydadil.com/b1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
-<button class="copy-btn" onclick="copyText('url-b1-ayda')" type="button">Kopyala</button>
-</div>
-</div>
-<div class="message-card">
-<div class="message-card-head">
-<div class="message-card-title">
-<div class="link-title-line">
-<span class="link-title">Yeni SINIF DUYURUSU</span>
-<span class="badge green">Sabit Mesaj</span>
-</div>
-<div class="message-card-subtitle">Yeni SINIF DUYURUSU</div>
-</div>
-<div class="message-actions">
-<button class="copy-btn" onclick="copyText('msg-a1-duyuru')" type="button">Mesajı Kopyala</button>
-</div>
-</div>
-<details class="message-details">
-<summary>Mesajı göster</summary>
-<pre class="message-text" id="msg-a1-duyuru">📢 *AYDA DİL AKADEMİSİ – KURS BİLGİLENDİRMESİ* 
- 
-Sayın öğrencilerimiz, 
- 
-AYDA Dil Akademisi’ne hoş geldiniz. 🇩🇪🌿 
- 
-Kurs süresince derslerinizin yanı sıra kullanabileceğiniz çalışma platformları, dijital kaynaklar, kitap temini ve Zoom kullanımıyla ilgili temel bilgileri aşağıda bulabilirsiniz. 
- 
-
-🎥 Ders Tekrar Videoları: 
-kurs.aydadil.com 
-Derslerin ardından kayıtlar sisteme ders sonunda otomatik olarak yüklenmektedir. Size özel oluşturulan e-posta adresi ve şifre ile giriş yapabilirsiniz. 
- 
-💻 *Tekrar ve Alıştırma Platformları* 
- 
-Derslerde işlediğimiz konuları tekrar etmek ve ek alıştırmalar yapmak için seviyenize uygun platformumuzu kullanabilirsiniz: 
- 
-🔗 *A1:* https://www.aydadil.com/a1ayda/ 
-🔗 *A2:* https://www.aydadil.com/a2ayda/ 
-🔗 *B1:* https://www.aydadil.com/b1ayda/ 
- 
-🔑 *Sınıf Kodu:* ………………… 
- 
-Platformlarımızda: 
- 
-• 24 ünite hazır ders videosu 
-• Kısa konu anlatımları 
-• Her üniteye özel alıştırmalar 
-• Tekrar videoları 
-• Yanlış cevaplanan soruları yeniden çözme imkânı 
- 
-📌 Derste hangi üniteyi işlediyseniz, platformdan aynı üniteyi açarak ilgili konu ve alıştırmalar üzerinden tekrar yapabilirsiniz. 
- 
-*Arbeitsbuch çalışmalarımıza normal şekilde devam edilmektedir.* Platformlarımız derslerin yerine geçmez; dersleri tekrar etmek, eksikleri tamamlamak ve konuları pekiştirmek amacıyla ek çalışma alanı olarak kullanılmaktadır. 
- 
-📚 *Dijital Kütüphane* 
- 
-🔗 https://www.aydadil.com/bibliothek/ 
- 
-Dijital kütüphanemizde farklı seviyelere yönelik Almanca kitaplar, okuma kaynakları, çalışma materyalleri ve çeşitli ek kaynaklara ulaşabilirsiniz. 
- 
-📝 *Sınav Hazırlık Platformu* 
- 
-🔗 https://www.aydadil.com/sinavhazirlik/ 
- 
-A1–C1 seviyelerinde *telc, ÖSD ve Goethe* sınavlarına yönelik hazırlık materyalleri ve sınav çalışmalarına buradan ulaşabilirsiniz. Özellikle sınav döneminiz yaklaştığında bu platformdan yararlanmanızı tavsiye ederiz. 
- 
-📚 *Kitap Temini* 
- 
-Ders kitaplarınızı internetten sipariş edebilir veya çıktı olarak kullanabilirsiniz. Ankara'daki anlaşmalı kitapçımızdan indirimli olarak da temin edebilirsiniz: 
- 
-📍 *Ekin Kitabevi* – Olgunlar Kitapçılar Çarşısı No:1, Ankara 
-👤 Reşat Yılmaz 
-📞 0535 276 12 49 
- 
-*AYDA Dil veya Onur Hoca aracılığıyla ulaştığınızı belirtmeniz yeterlidir.* 4 kitaplık seti *800 ₺* karşılığında temin edebilir, dilerseniz *kargo alıcı ödemeli* olarak sipariş verebilirsiniz. 
- 
-💻 *Zoom Kullanımı* 
- 
-Derslerimize katılmadan önce cihazınıza uygun Zoom uygulamasını indirmenizi ve kamera/mikrofon kontrollerinizi yapmanızı önemle tavsiye ederiz. 
- 
-📱 Android: https://play.google.com/store/apps/details?id=us.zoom.videomeetings 
-📱 iOS: https://itunes.apple.com/us/app/id546505307 
-💻 Mac: https://zoom.us/download?os=mac 
-💻 Bilgisayar: https://zoom.us/download 
- 
-📌 *Önemli Bilgilendirme* 
- 
-Paylaştığımız tüm ders platformlarına ve bağlantılara daha sonra *grup açıklamasından* da ulaşabilirsiniz. 
- 
-Dersler, materyaller veya platformların kullanımıyla ilgili herhangi bir sorunuz olması durumunda bizimle iletişime geçebilirsiniz. 
- 
-Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪🌿 
- 
-*AYDA Dil Akademisi* </pre>
-</details>
-</div>
-</div>
-</details>
 <details class="section" open="" id="section-registration">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
@@ -1117,16 +1033,74 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details><details class="section" id="section-exams">
+</details><details class="section" open="" id="section-exams">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
-<h2>Sınav İşlemleri</h2>
+<h2>Sınavlar ve Seviye Belirleme</h2>
 </div>
-<span class="desc">Kayıt, seviye ve hazırlık · 3 bağlantı</span>
+<span class="desc">A1–C1 seviye sınavları, telc kayıt ve hazırlık · 8 bağlantı</span>
 </summary>
 <div class="link-list">
 <div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="exam-inline-head"><div><h3>Seviye Belirleme Sınavları</h3><p>Öğrenci seviyesini seçin; sınavı açın veya bağlantısını paylaşın.</p></div><span class="exam-count">A1–C1</span></div>
+<div class="exam-grid"><div class="link-row exam-link-row">
+ <div class="link-info">
+  <div class="link-title-line"><span class="link-title">A1 Seviye Belirleme</span><span class="badge">A1</span></div>
+  <div class="exam-link-type">Form · Öğrenciyle paylaş</div>
+  <div class="link-url" id="url-seviye-a1">https://forms.gle/TFFzbHqzX1NsZkxz6</div>
+ </div>
+ <div class="row-actions">
+  <a class="action" href="https://forms.gle/TFFzbHqzX1NsZkxz6" target="_blank" rel="noopener noreferrer" aria-label="A1 sınavını aç">Sınavı Aç ↗</a>
+  <button class="copy-btn" type="button" onclick="copyText('url-seviye-a1')" aria-label="A1 sınav linkini kopyala">Linki Kopyala</button>
+ </div>
+</div>
+<div class="link-row exam-link-row">
+ <div class="link-info">
+  <div class="link-title-line"><span class="link-title">A2 Seviye Belirleme</span><span class="badge">A2</span></div>
+  <div class="exam-link-type">Form · Öğrenciyle paylaş</div>
+  <div class="link-url" id="url-seviye-a2">https://forms.gle/cjnptbAmLdpynucUA</div>
+ </div>
+ <div class="row-actions">
+  <a class="action" href="https://forms.gle/cjnptbAmLdpynucUA" target="_blank" rel="noopener noreferrer" aria-label="A2 sınavını aç">Sınavı Aç ↗</a>
+  <button class="copy-btn" type="button" onclick="copyText('url-seviye-a2')" aria-label="A2 sınav linkini kopyala">Linki Kopyala</button>
+ </div>
+</div>
+<div class="link-row exam-link-row">
+ <div class="link-info">
+  <div class="link-title-line"><span class="link-title">B1 Seviye Belirleme</span><span class="badge">B1</span></div>
+  <div class="exam-link-type">Form · Öğrenciyle paylaş</div>
+  <div class="link-url" id="url-seviye-b1">https://forms.gle/zmCTKALRRzAPTkts8</div>
+ </div>
+ <div class="row-actions">
+  <a class="action" href="https://forms.gle/zmCTKALRRzAPTkts8" target="_blank" rel="noopener noreferrer" aria-label="B1 sınavını aç">Sınavı Aç ↗</a>
+  <button class="copy-btn" type="button" onclick="copyText('url-seviye-b1')" aria-label="B1 sınav linkini kopyala">Linki Kopyala</button>
+ </div>
+</div>
+<div class="link-row exam-link-row">
+ <div class="link-info">
+  <div class="link-title-line"><span class="link-title">B2 Seviye Belirleme</span><span class="badge">B2</span></div>
+  <div class="exam-link-type">Sınav sayfası · Öğrenciyle paylaş</div>
+  <div class="link-url" id="url-seviye-b2">https://onurqlp.github.io/SEVIYEBELIRLEME/B2seviye.html</div>
+ </div>
+ <div class="row-actions">
+  <a class="action" href="https://onurqlp.github.io/SEVIYEBELIRLEME/B2seviye.html" target="_blank" rel="noopener noreferrer" aria-label="B2 sınavını aç">Sınavı Aç ↗</a>
+  <button class="copy-btn" type="button" onclick="copyText('url-seviye-b2')" aria-label="B2 sınav linkini kopyala">Linki Kopyala</button>
+ </div>
+</div>
+<div class="link-row exam-link-row">
+ <div class="link-info">
+  <div class="link-title-line"><span class="link-title">C1 Seviye Belirleme</span><span class="badge">C1</span></div>
+  <div class="exam-link-type">Sınav sayfası · Öğrenciyle paylaş</div>
+  <div class="link-url" id="url-seviye-c1">https://onurqlp.github.io/SEVIYEBELIRLEME/C1seviye.html</div>
+ </div>
+ <div class="row-actions">
+  <a class="action" href="https://onurqlp.github.io/SEVIYEBELIRLEME/C1seviye.html" target="_blank" rel="noopener noreferrer" aria-label="C1 sınavını aç">Sınavı Aç ↗</a>
+  <button class="copy-btn" type="button" onclick="copyText('url-seviye-c1')" aria-label="C1 sınav linkini kopyala">Linki Kopyala</button>
+ </div>
+</div></div>
+<div class="exam-inline-head other-exams"><div><h3>Diğer Sınav İşlemleri</h3><p>telc kayıt, hazırlık ve ayrı bağlantı merkezi.</p></div></div>
+
 <div class="link-row">
 <div class="link-info">
 <div class="link-title-line">
@@ -1145,7 +1119,7 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 <div class="link-row">
 <div class="link-info">
 <div class="link-title-line">
-<span class="link-title">Seviye Belirleme / Sınavlar</span>
+<span class="link-title">Sınav Link Merkezi (Ayrı Sayfa)</span>
 <span class="badge">Sınavlar</span>
 </div>
 <div class="link-url" id="url-seviye">https://onurqlp.github.io/SEVIYEBELIRLEME/</div>
@@ -1208,7 +1182,55 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details><details class="section" id="section-teachers">
+</details><details class="section" id="section-repeat">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap"><div class="chevron">›</div><h2>Ders Tekrar Platformları</h2></div>
+<span class="desc">Öğrenciler için A1, A2 ve B1 çalışma platformları · 3 bağlantı</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">A1 Tekrar ve Alıştırma Platformu</span>
+<span class="badge green">A1</span>
+</div>
+<div class="link-url" id="url-a1-ayda">https://www.aydadil.com/a1ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/a1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a1-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">A2 Tekrar ve Alıştırma Platformu</span>
+<span class="badge orange">A2</span>
+</div>
+<div class="link-url" id="url-a2-ayda">https://www.aydadil.com/a2ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/a2ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a2-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line">
+<span class="link-title">B1 Tekrar ve Alıştırma Platformu</span>
+<span class="badge purple">B1</span>
+</div>
+<div class="link-url" id="url-b1-ayda">https://www.aydadil.com/b1ayda/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/b1ayda/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-b1-ayda')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details>
+<details class="section" id="section-teachers">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1294,6 +1316,110 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 <a class="action" href="https://www.aydadil.com/cnc_ubung/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
 <button class="copy-btn" onclick="copyText('url-cnc')" type="button">Kopyala</button>
 </div>
+</div>
+</div>
+</details>
+<details class="section" id="section-messages">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap">
+<div class="chevron">›</div>
+<h2>Hazır Öğrenci Mesajları</h2>
+</div>
+<span class="desc">Yeni sınıf bilgilendirmesini tek dokunuşla kopyalayın</span>
+</summary>
+<div class="link-list">
+<div class="empty-state">Bu bölümde eşleşen içerik bulunamadı.</div>
+<div class="message-card">
+<div class="message-card-head">
+<div class="message-card-title">
+<div class="link-title-line">
+<span class="link-title">Yeni Sınıf Bilgilendirmesi</span>
+<span class="badge green">Sabit Mesaj</span>
+</div>
+<div class="message-card-subtitle">Öğrencilere iletilecek hazır açıklama ve bağlantılar</div>
+</div>
+<div class="message-actions">
+<button class="copy-btn" onclick="copyText('msg-a1-duyuru')" type="button">Mesajı Kopyala</button>
+</div>
+</div>
+<details class="message-details">
+<summary>Mesajı göster</summary>
+<pre class="message-text" id="msg-a1-duyuru">📢 *AYDA DİL AKADEMİSİ – KURS BİLGİLENDİRMESİ* 
+ 
+Sayın öğrencilerimiz, 
+ 
+AYDA Dil Akademisi’ne hoş geldiniz. 🇩🇪🌿 
+ 
+Kurs süresince derslerinizin yanı sıra kullanabileceğiniz çalışma platformları, dijital kaynaklar, kitap temini ve Zoom kullanımıyla ilgili temel bilgileri aşağıda bulabilirsiniz. 
+ 
+
+🎥 Ders Tekrar Videoları: 
+kurs.aydadil.com 
+Derslerin ardından kayıtlar sisteme ders sonunda otomatik olarak yüklenmektedir. Size özel oluşturulan e-posta adresi ve şifre ile giriş yapabilirsiniz. 
+ 
+💻 *Tekrar ve Alıştırma Platformları* 
+ 
+Derslerde işlediğimiz konuları tekrar etmek ve ek alıştırmalar yapmak için seviyenize uygun platformumuzu kullanabilirsiniz: 
+ 
+🔗 *A1:* https://www.aydadil.com/a1ayda/ 
+🔗 *A2:* https://www.aydadil.com/a2ayda/ 
+🔗 *B1:* https://www.aydadil.com/b1ayda/ 
+ 
+🔑 *Sınıf Kodu:* ………………… 
+ 
+Platformlarımızda: 
+ 
+• 24 ünite hazır ders videosu 
+• Kısa konu anlatımları 
+• Her üniteye özel alıştırmalar 
+• Tekrar videoları 
+• Yanlış cevaplanan soruları yeniden çözme imkânı 
+ 
+📌 Derste hangi üniteyi işlediyseniz, platformdan aynı üniteyi açarak ilgili konu ve alıştırmalar üzerinden tekrar yapabilirsiniz. 
+ 
+*Arbeitsbuch çalışmalarımıza normal şekilde devam edilmektedir.* Platformlarımız derslerin yerine geçmez; dersleri tekrar etmek, eksikleri tamamlamak ve konuları pekiştirmek amacıyla ek çalışma alanı olarak kullanılmaktadır. 
+ 
+📚 *Dijital Kütüphane* 
+ 
+🔗 https://www.aydadil.com/bibliothek/ 
+ 
+Dijital kütüphanemizde farklı seviyelere yönelik Almanca kitaplar, okuma kaynakları, çalışma materyalleri ve çeşitli ek kaynaklara ulaşabilirsiniz. 
+ 
+📝 *Sınav Hazırlık Platformu* 
+ 
+🔗 https://www.aydadil.com/sinavhazirlik/ 
+ 
+A1–C1 seviyelerinde *telc, ÖSD ve Goethe* sınavlarına yönelik hazırlık materyalleri ve sınav çalışmalarına buradan ulaşabilirsiniz. Özellikle sınav döneminiz yaklaştığında bu platformdan yararlanmanızı tavsiye ederiz. 
+ 
+📚 *Kitap Temini* 
+ 
+Ders kitaplarınızı internetten sipariş edebilir veya çıktı olarak kullanabilirsiniz. Ankara'daki anlaşmalı kitapçımızdan indirimli olarak da temin edebilirsiniz: 
+ 
+📍 *Ekin Kitabevi* – Olgunlar Kitapçılar Çarşısı No:1, Ankara 
+👤 Reşat Yılmaz 
+📞 0535 276 12 49 
+ 
+*AYDA Dil veya Onur Hoca aracılığıyla ulaştığınızı belirtmeniz yeterlidir.* 4 kitaplık seti *800 ₺* karşılığında temin edebilir, dilerseniz *kargo alıcı ödemeli* olarak sipariş verebilirsiniz. 
+ 
+💻 *Zoom Kullanımı* 
+ 
+Derslerimize katılmadan önce cihazınıza uygun Zoom uygulamasını indirmenizi ve kamera/mikrofon kontrollerinizi yapmanızı önemle tavsiye ederiz. 
+ 
+📱 Android: https://play.google.com/store/apps/details?id=us.zoom.videomeetings 
+📱 iOS: https://itunes.apple.com/us/app/id546505307 
+💻 Mac: https://zoom.us/download?os=mac 
+💻 Bilgisayar: https://zoom.us/download 
+ 
+📌 *Önemli Bilgilendirme* 
+ 
+Paylaştığımız tüm ders platformlarına ve bağlantılara daha sonra *grup açıklamasından* da ulaşabilirsiniz. 
+ 
+Dersler, materyaller veya platformların kullanımıyla ilgili herhangi bir sorunuz olması durumunda bizimle iletişime geçebilirsiniz. 
+ 
+Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪🌿 
+ 
+*AYDA Dil Akademisi* </pre>
+</details>
 </div>
 </div>
 </details>
@@ -1511,7 +1637,7 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
   
 /* Daily links: quick navigation and local, user-controlled favorites */
 (function(){
- document.querySelectorAll('button.quick-link[data-target]').forEach(button=>{
+ document.querySelectorAll('button[data-target]').forEach(button=>{
   button.addEventListener('click',()=>{
    const search=document.getElementById('panelSearch');
    if(search && search.value){search.value='';filterPanel();}
