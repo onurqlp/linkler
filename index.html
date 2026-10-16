@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<meta content="#234078" name="theme-color"/>
-<meta content="AYDA Dil Akademisi yönetici link paneli" name="description"/>
-<title>AYDA Yönetici Paneli – Rahat Kullanım</title>
+<meta content="#102541" name="theme-color"/>
+<meta content="AYDA Dil Akademisi yönetim merkezi, bağlantılar ve işlemler" name="description"/>
+<title>AYDA · Yönetim Merkezi</title>
 <style>
     :root {
       --ayda: #234078;
@@ -839,6 +839,56 @@
       }
     }
 
+
+/* AYDA unified visual system · October 2026 */
+:root{
+  --ayda:#102541;--ayda-dark:#0b1b30;--bg:#fbf9f5;--card:#fff;
+  --text:#172a42;--muted:#647185;--border:#e7e6e0;--soft:#f0f3f6;
+  --gold:#e8c37b;--shadow:0 16px 42px rgba(16,37,65,.065);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg)}
+.page{max-width:1180px}
+.simple-header{border:1px solid rgba(232,195,123,.25);background:linear-gradient(130deg,#102541 5%,#244864 100%);padding:25px 24px;border-radius:23px}
+.logo{background:var(--gold);color:var(--ayda);width:51px;height:51px;border-radius:14px}
+.header-kicker{display:block;color:var(--gold);letter-spacing:.09em;font-weight:800;font-size:10px;margin-bottom:5px}
+.simple-subtitle{max-width:610px}
+.tools{border:1px solid var(--border);box-shadow:0 6px 24px rgba(16,37,65,.035)}
+.search-input{background:#fff}
+.section{box-shadow:0 7px 20px rgba(16,37,65,.025)}
+.section-head{background:#fff}
+.link-row{transition:background .16s}
+.link-row:hover{background:#fcfbf7}
+.link-url{overflow-wrap:anywhere}
+.action{background:var(--ayda)}
+.action:hover{background:#234864}
+.copy-btn{background:#f1f4f7}
+.quick-nav{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:2px 0 13px;margin-bottom:3px;-webkit-overflow-scrolling:touch}
+.quick-link{background:#fff;border:1px solid var(--border);color:#30425b;white-space:nowrap;padding:10px 13px;min-height:41px;border-radius:999px;font:750 12.5px/1.3 inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.quick-link:hover{background:#f6f2e8;border-color:#d9c28e}
+.favorites-panel{border:1px solid #e6d7b9;background:linear-gradient(120deg,#fffdf8,#fff);border-radius:17px;padding:14px 16px;margin-bottom:14px}
+.favorites-panel[hidden]{display:none}
+.favorites-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;color:var(--ayda)}
+.favorites-title small{font-size:11px;color:var(--muted)}
+.favorite-items{display:flex;flex-wrap:wrap;gap:7px}
+.favorite-item{display:inline-flex;background:#f2f5f7;border:1px solid #e3eaf0;border-radius:9px;padding:9px 12px;color:var(--ayda);font-weight:700;font-size:12px;gap:7px;align-items:center}
+.favorite-item:hover{background:#e8eff4}
+.favorite-toggle{border:0;background:transparent;color:#9aa6b5;cursor:pointer;padding:4px 6px;border-radius:8px;font-size:20px;line-height:1;min-width:30px;min-height:30px;display:grid;place-items:center;margin-left:auto}
+.favorite-toggle[aria-pressed="true"]{color:#c18d2a}
+.favorite-toggle:hover{background:#fff7e6}
+.link-title-line{flex-wrap:wrap}
+.panel-footer{color:#7a8796;font-size:11.5px;line-height:1.6;text-align:center;margin-top:18px;padding:4px 10px}
+section[id],details[id]{scroll-margin-top:18px}
+:focus-visible{outline:3px solid #d0a955;outline-offset:3px}
+@media(max-width:620px){
+ .simple-header{padding:19px 17px;border-radius:20px}
+ .quick-nav{margin:0 -2px 6px;padding:2px 2px 13px}
+ .quick-link{min-height:44px}
+ .favorite-toggle{margin-left:0}
+ .favorites-panel{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.link-row,.quick-link{transition:none}}
+
 </style>
 </head>
 <body>
@@ -847,20 +897,34 @@
 <div class="simple-title">
 <div aria-hidden="true" class="logo">AYDA</div>
 <div class="simple-header-copy">
-<h1>Yönetici Link Paneli — TEST</h1>
-<div class="simple-subtitle">Günlük kullanılan bağlantılar, ödeme ve kurum işlemleri tek ekranda.</div>
+<span class="header-kicker">AYDA DİL AKADEMİSİ · İÇ YÖNETİM</span>
+<h1>Yönetim Merkezi</h1>
+<div class="simple-subtitle">Günlük araçlar, sınav bağlantıları, kayıtlar ve kurumsal işlemler tek ekranda.</div>
 </div>
 </div>
 </header>
 <div aria-label="Panel araçları" class="tools" role="search">
 <div class="search-wrap">
 <span aria-hidden="true" class="search-icon">⌕</span>
-<input aria-label="Panelde ara" autocomplete="off" class="search-input" id="panelSearch" inputmode="search" placeholder="Link veya bölüm ara…" type="search"/>
+<input aria-label="Panelde ara" autocomplete="off" class="search-input" id="panelSearch" inputmode="search" placeholder="Link, sınav veya işlem ara…" type="search"/>
 </div>
 <button class="tool-btn" onclick="goToBank()" type="button">Banka Bilgileri</button>
 <button class="tool-btn" id="toggleSectionsBtn" onclick="toggleAllSections()" type="button">Tümünü Aç</button></div>
+<nav class="quick-nav" aria-label="Bölümlere hızlı erişim">
+<button type="button" class="quick-link" data-target="section-frequent">★ Sık Kullanılanlar</button>
+<button type="button" class="quick-link" data-target="section-registration">Kayıt &amp; Ödeme</button>
+<button type="button" class="quick-link" data-target="section-exams">Sınavlar</button>
+<button type="button" class="quick-link" data-target="section-students">Öğrenci İşlemleri</button>
+<button type="button" class="quick-link" data-target="section-teachers">Öğretmen</button>
+<button type="button" class="quick-link" data-target="section-resources">Ek Kaynaklar</button>
+<button type="button" class="quick-link" data-target="bank-section">Banka Bilgileri</button>
+</nav>
+<section class="favorites-panel" id="favoritesPanel" hidden aria-label="Favori bağlantılar">
+<div class="favorites-title"><strong>★ Favorilerim</strong><small>Yıldızladığınız bağlantılar bu cihazda saklanır.</small></div>
+<div class="favorite-items" id="favoriteItems"></div>
+</section>
 <div class="layout"><div>
-<details class="section" open="">
+<details class="section" open="" id="section-frequent">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1003,13 +1067,13 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </details>
-<details class="section" open="">
+<details class="section" open="" id="section-registration">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
 <h2>Kayıt &amp; Ödeme</h2>
 </div>
-<span class="desc">Yeni kayıt, müşteri ve tahsilat · 4 bağlantı</span>
+<span class="desc">Yeni kayıt, müşteri ve tahsilat · 3 bağlantı</span>
 </summary>
 <div class="link-list">
 <div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
@@ -1042,19 +1106,6 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 <div class="link-row">
 <div class="link-info">
 <div class="link-title-line">
-<span class="link-title">AYDA Fiyat Hesaplayıcı</span>
-<span class="badge orange">Fiyat</span>
-</div>
-<div class="link-url" id="url-fiyat-hesaplayici">https://onurqlp.github.io/fiyat/</div>
-</div>
-<div class="row-actions">
-<a class="action" href="https://onurqlp.github.io/fiyat/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
-<button class="copy-btn" onclick="copyText('url-fiyat-hesaplayici')" type="button">Kopyala</button>
-</div>
-</div>
-<div class="link-row">
-<div class="link-info">
-<div class="link-title-line">
 <span class="link-title">Online Ödeme Linki</span>
 <span class="badge green">Ödeme</span>
 </div>
@@ -1066,7 +1117,7 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details><details class="section">
+</details><details class="section" id="section-exams">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1119,7 +1170,7 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details><details class="section">
+</details><details class="section" id="section-students">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1157,7 +1208,7 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details><details class="section">
+</details><details class="section" id="section-teachers">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1207,7 +1258,46 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </div>
 </div>
 </div>
-</details></div><aside><details class="section bank-section" id="bank-section" open="">
+</details>
+<details class="section" id="section-resources">
+<summary class="section-head" tabindex="0">
+<div class="section-title-wrap"><div class="chevron">›</div><h2>Ek Eğitim Kaynakları</h2></div>
+<span class="desc">Kütüphane, telc ve mesleki Almanca · 3 bağlantı</span>
+</summary>
+<div class="link-list"><div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line"><span class="link-title">AYDA Dijital Kütüphane</span><span class="badge green">Kütüphane</span></div>
+<div class="link-url" id="url-bibliothek">https://www.aydadil.com/bibliothek/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/bibliothek/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-bibliothek')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line"><span class="link-title">telc A2 Sınav Bilgileri</span><span class="badge red">telc A2</span></div>
+<div class="link-url" id="url-a2telc">https://onurqlp.github.io/A2telc/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://onurqlp.github.io/A2telc/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-a2telc')" type="button">Kopyala</button>
+</div>
+</div>
+<div class="link-row">
+<div class="link-info">
+<div class="link-title-line"><span class="link-title">CNC Mesleki Almanca</span><span class="badge orange">CNC</span></div>
+<div class="link-url" id="url-cnc">https://www.aydadil.com/cnc_ubung/</div>
+</div>
+<div class="row-actions">
+<a class="action" href="https://www.aydadil.com/cnc_ubung/" rel="noopener noreferrer" target="_blank">Aç ↗</a>
+<button class="copy-btn" onclick="copyText('url-cnc')" type="button">Kopyala</button>
+</div>
+</div>
+</div>
+</details>
+</div><aside><details class="section bank-section" id="bank-section" open="">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1258,8 +1348,9 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 <div class="copy-line"><div><span class="copy-label">Adres</span><div class="copy-text" id="adres">Kızılay Mah. Necatibey Cad. 17/7 Çankaya Ankara</div></div><button class="copy-btn" onclick="copyText('adres')" type="button">Kopyala</button></div>
 </div>
 </details></aside></div>
+<p class="panel-footer">AYDA Dil Akademisi · Yönetim bağlantıları. Bu GitHub Pages sayfası bağlantıyı bilen herkes tarafından görüntülenebilir; özel şifre veya kişisel kayıt eklemeyin.</p>
 </main>
-<div class="toast" id="toast">Kopyalandı</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Kopyalandı</div>
 <script>
     function copyText(id) {
       const element = document.getElementById(id);
@@ -1417,6 +1508,67 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
         document.getElementById('panelSearch').blur();
       }
     });
-  </script>
+  
+/* Daily links: quick navigation and local, user-controlled favorites */
+(function(){
+ document.querySelectorAll('button.quick-link[data-target]').forEach(button=>{
+  button.addEventListener('click',()=>{
+   const search=document.getElementById('panelSearch');
+   if(search && search.value){search.value='';filterPanel();}
+   const section=document.getElementById(button.dataset.target);
+   if(!section)return;
+   if(section.tagName==='DETAILS')section.open=true;
+   section.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  });
+ });
+ const key='ayda_linkler_favorites_2026';
+ let saved=[];
+ try{const data=JSON.parse(localStorage.getItem(key)||'[]');saved=Array.isArray(data)?data.filter(v=>typeof v==='string'):[];}catch(err){}
+ const favorites=new Set(saved);
+ const catalog=new Map();
+ const favoriteBox=document.getElementById('favoritesPanel');
+ const favoriteItems=document.getElementById('favoriteItems');
+ const items=Array.from(document.querySelectorAll('.link-row'));
+ function persist(){try{localStorage.setItem(key,JSON.stringify(Array.from(favorites)));}catch(err){}}
+ function render(){
+  if(!favoriteBox || !favoriteItems)return;
+  favoriteItems.replaceChildren();
+  Array.from(favorites).forEach(id=>{
+   const item=catalog.get(id);
+   if(!item)return;
+   const link=document.createElement('a');
+   link.className='favorite-item';link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';
+   link.textContent=item.title+' ↗';
+   favoriteItems.appendChild(link);
+  });
+  favoriteBox.hidden=!favoriteItems.childElementCount;
+  document.querySelectorAll('button.favorite-toggle').forEach(button=>{
+   const on=favorites.has(button.dataset.favorite);
+   button.setAttribute('aria-pressed',String(on));
+   button.setAttribute('aria-label',on?'Favorilerden çıkar':'Favorilere ekle');
+   button.title=on?'Favorilerden çıkar':'Favorilere ekle';
+   button.textContent=on?'★':'☆';
+  });
+ }
+ items.forEach(row=>{
+  const urlEl=row.querySelector('.link-url[id]');
+  const anchor=row.querySelector('a.action[href]');
+  const titleEl=row.querySelector('.link-title');
+  const titleLine=row.querySelector('.link-title-line');
+  if(!urlEl||!anchor||!titleEl||!titleLine)return;
+  catalog.set(urlEl.id,{url:anchor.href,title:titleEl.textContent.trim()});
+  const star=document.createElement('button');
+  star.type='button';star.className='favorite-toggle';star.dataset.favorite=urlEl.id;
+  star.addEventListener('click',()=>{
+   if(favorites.has(urlEl.id))favorites.delete(urlEl.id);
+   else favorites.add(urlEl.id);
+   persist();render();
+  });
+  titleLine.appendChild(star);
+ });
+ render();
+})();
+
+</script>
 </body>
 </html>
