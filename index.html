@@ -938,6 +938,59 @@ section[id],details[id]{scroll-margin-top:18px}
 @media(max-width:355px){.operations-grid{grid-template-columns:1fr}.operation{padding:12px}.operation strong{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.operation{transition:none}}
 
+
+/* User-first clipboard actions: no redundant jump-to-section hero buttons */
+.copy-hub{border:1px solid #e6e2d8;background:#fff;border-radius:18px;padding:17px 18px;margin-bottom:14px;box-shadow:0 9px 26px rgba(16,37,65,.04)}
+.copy-hub-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.copy-hub-head h2{font-size:18px;line-height:1.2;color:#102541;letter-spacing:-.3px;margin:0 0 4px;font-weight:850}
+.copy-hub-head p{font-size:12px;line-height:1.4;color:#647185;margin:0}
+.copy-hub-hint{display:grid;place-items:center;width:37px;height:37px;border-radius:11px;background:#f4ecdd;color:#765523;flex:none;font-size:20px}
+.copy-hub-subhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:15px 1px 8px;color:#102541}
+.copy-hub-subhead strong{font-size:12.5px;font-weight:800}
+.copy-hub-subhead span{font-size:11px;color:#788496}
+.copy-hub-subhead.second{padding-top:17px}
+.copy-exams{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.copy-exam{display:grid;grid-template-columns:minmax(0,1fr) 34px;min-width:0;gap:5px}
+.copy-exam-main{border:1px solid #102541;background:#102541;color:#fff;border-radius:11px;padding:10px 7px;min-height:55px;display:flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;cursor:pointer}
+.copy-exam-level{font-weight:900;font-size:18px;color:#e8c37b;line-height:1}
+.copy-exam-label{font-size:11px;font-weight:750;display:flex;align-items:center;gap:4px}
+.copy-exam-open{border:1px solid #e5e6e7;display:grid;place-items:center;border-radius:10px;background:#f7f8f8;color:#102541;font-weight:800;font-size:16px}
+.copy-exam-main:hover{background:#234864}
+.copy-exam-open:hover{background:#eceff2}
+.copy-general-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.copy-general{border:1px solid #e4e8ec;border-radius:12px;padding:11px;min-width:0;background:#fcfcfd;display:grid;gap:9px}
+.copy-general-title{font-size:12px;font-weight:750;color:#102541;line-height:1.3;min-height:29px}
+.copy-general-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;min-width:0}
+.copy-general-main,.copy-general-open{min-height:40px;border-radius:9px;padding:9px 7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-family:inherit;font-weight:750;text-align:center}
+.copy-general-main{border:1px solid #102541;color:#fff;background:#102541;cursor:pointer;gap:6px}
+.copy-general-open{color:#102541;border:1px solid #e0e5ea;background:#fff}
+.copy-general-main:hover{background:#234864}
+.copy-general-open:hover{background:#f4f6f8}
+.favorite-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.favorite-entry{display:flex;align-items:center;gap:6px;min-width:0;background:#fbfcfd;border:1px solid #e5e8eb;border-radius:10px;padding:8px}
+.favorite-name{flex:1;min-width:0;font-size:12px;font-weight:750;line-height:1.25;color:#142a46;overflow-wrap:anywhere}
+.favorite-copy,.favorite-open{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font:750 11px/1.2 inherit;padding:9px 10px;min-height:36px}
+.favorite-copy{border:1px solid #102541;background:#102541;color:#fff;cursor:pointer}
+.favorite-open{border:1px solid #dde3e9;color:#102541;background:#fff}
+.copy-hub button:focus-visible,.copy-hub a:focus-visible{outline:3px solid #e8c37b;outline-offset:2px}
+@media(max-width:960px){.copy-general-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+ .copy-hub{padding:13px 12px;margin-bottom:10px;border-radius:15px}
+ .copy-hub-head h2{font-size:16px}
+ .copy-hub-head p{font-size:11px}
+ .copy-hub-hint{display:none}
+ .copy-exams{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .copy-exam{grid-template-columns:minmax(0,1fr) 26px;gap:4px}
+ .copy-exam-main{min-height:53px;flex-direction:column;gap:3px;padding:6px 3px}
+ .copy-exam-level{font-size:16px}
+ .copy-exam-label{font-size:10px}
+ .copy-exam-open{font-size:13px}
+ .copy-general-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .copy-general{padding:10px}
+ .favorite-items{grid-template-columns:1fr}
+}
+@media(max-width:340px){.copy-exams{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-general-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -952,14 +1005,58 @@ section[id],details[id]{scroll-margin-top:18px}
 </div>
 </div>
 </header>
-<section class="operations" aria-label="Hızlı işlemler">
-<div class="operations-title"><strong>Bugün ne yapmak istiyorsunuz?</strong><span>En çok kullanılan yönetim işlemlerine kısa yol</span></div>
-<div class="operations-grid">
-<a class="operation" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer"><span class="operation-symbol" aria-hidden="true">＋</span><span><strong>Öğrenci Kaydı</strong><small>Kayıt formunu aç</small></span><span class="operation-arrow" aria-hidden="true">↗</span></a>
-<button class="operation" type="button" data-target="section-exams"><span class="operation-symbol" aria-hidden="true">A1</span><span><strong>Seviye Sınavı</strong><small>A1–C1 sınav linkleri</small></span><span class="operation-arrow" aria-hidden="true">↓</span></button>
-<a class="operation" href="https://onurqlp.github.io/kurskatilim/" target="_blank" rel="noopener noreferrer"><span class="operation-symbol" aria-hidden="true">▤</span><span><strong>Katılım Belgesi</strong><small>Belge düzenleme</small></span><span class="operation-arrow" aria-hidden="true">↗</span></a>
-<button class="operation" type="button" data-target="section-registration"><span class="operation-symbol" aria-hidden="true">₺</span><span><strong>Ödeme İşlemleri</strong><small>Ödeme linki ve kayıtlar</small></span><span class="operation-arrow" aria-hidden="true">↓</span></button>
+<section class="copy-hub" aria-labelledby="copyHubTitle">
+<div class="copy-hub-head"><div><h2 id="copyHubTitle">Hızlı Link Kopyala</h2><p>Öğrenciye göndereceğiniz bağlantıya dokunun; link doğrudan panoya kopyalansın.</p></div><span class="copy-hub-hint" aria-hidden="true">⧉</span></div>
+<div class="copy-hub-subhead"><strong>Seviye belirleme sınavları</strong><span>A1–C1</span></div>
+<div class="copy-exams"><div class="copy-exam" role="group" aria-label="A1 seviye sınavı">
+<button type="button" class="copy-exam-main" onclick="copyText('url-seviye-a1')" aria-label="A1 seviye sınavı bağlantısını kopyala"><span class="copy-exam-level">A1</span><span class="copy-exam-label">Kopyala <span aria-hidden="true">⧉</span></span></button>
+<a href="https://forms.gle/TFFzbHqzX1NsZkxz6" target="_blank" rel="noopener noreferrer" class="copy-exam-open" aria-label="A1 sınavını aç" title="Sınavı aç">↗</a>
 </div>
+<div class="copy-exam" role="group" aria-label="A2 seviye sınavı">
+<button type="button" class="copy-exam-main" onclick="copyText('url-seviye-a2')" aria-label="A2 seviye sınavı bağlantısını kopyala"><span class="copy-exam-level">A2</span><span class="copy-exam-label">Kopyala <span aria-hidden="true">⧉</span></span></button>
+<a href="https://forms.gle/cjnptbAmLdpynucUA" target="_blank" rel="noopener noreferrer" class="copy-exam-open" aria-label="A2 sınavını aç" title="Sınavı aç">↗</a>
+</div>
+<div class="copy-exam" role="group" aria-label="B1 seviye sınavı">
+<button type="button" class="copy-exam-main" onclick="copyText('url-seviye-b1')" aria-label="B1 seviye sınavı bağlantısını kopyala"><span class="copy-exam-level">B1</span><span class="copy-exam-label">Kopyala <span aria-hidden="true">⧉</span></span></button>
+<a href="https://forms.gle/zmCTKALRRzAPTkts8" target="_blank" rel="noopener noreferrer" class="copy-exam-open" aria-label="B1 sınavını aç" title="Sınavı aç">↗</a>
+</div>
+<div class="copy-exam" role="group" aria-label="B2 seviye sınavı">
+<button type="button" class="copy-exam-main" onclick="copyText('url-seviye-b2')" aria-label="B2 seviye sınavı bağlantısını kopyala"><span class="copy-exam-level">B2</span><span class="copy-exam-label">Kopyala <span aria-hidden="true">⧉</span></span></button>
+<a href="https://onurqlp.github.io/SEVIYEBELIRLEME/B2seviye.html" target="_blank" rel="noopener noreferrer" class="copy-exam-open" aria-label="B2 sınavını aç" title="Sınavı aç">↗</a>
+</div>
+<div class="copy-exam" role="group" aria-label="C1 seviye sınavı">
+<button type="button" class="copy-exam-main" onclick="copyText('url-seviye-c1')" aria-label="C1 seviye sınavı bağlantısını kopyala"><span class="copy-exam-level">C1</span><span class="copy-exam-label">Kopyala <span aria-hidden="true">⧉</span></span></button>
+<a href="https://onurqlp.github.io/SEVIYEBELIRLEME/C1seviye.html" target="_blank" rel="noopener noreferrer" class="copy-exam-open" aria-label="C1 sınavını aç" title="Sınavı aç">↗</a>
+</div></div>
+<div class="copy-hub-subhead second"><strong>Kayıt ve ödeme bağlantıları</strong><span>4 bağlantı</span></div>
+<div class="copy-general-grid"><div class="copy-general" role="group" aria-label="Öğrenci Kayıt Formu">
+<span class="copy-general-title">Öğrenci Kayıt Formu</span>
+<div class="copy-general-actions">
+<button type="button" class="copy-general-main" onclick="copyText('url-kayit-ogrenci')" aria-label="Öğrenci Kayıt Formu bağlantısını kopyala"><span aria-hidden="true">⧉</span> Linki Kopyala</button>
+<a href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer" class="copy-general-open" aria-label="Öğrenci Kayıt Formu sayfasını aç">Aç ↗</a>
+</div>
+</div>
+<div class="copy-general" role="group" aria-label="Müşteri Bilgi Formu">
+<span class="copy-general-title">Müşteri Bilgi Formu</span>
+<div class="copy-general-actions">
+<button type="button" class="copy-general-main" onclick="copyText('url-musteri-form')" aria-label="Müşteri Bilgi Formu bağlantısını kopyala"><span aria-hidden="true">⧉</span> Linki Kopyala</button>
+<a href="https://forms.gle/1NEU3YzrZ8FdfDVs6" target="_blank" rel="noopener noreferrer" class="copy-general-open" aria-label="Müşteri Bilgi Formu sayfasını aç">Aç ↗</a>
+</div>
+</div>
+<div class="copy-general" role="group" aria-label="telc Sınav Kaydı">
+<span class="copy-general-title">telc Sınav Kaydı</span>
+<div class="copy-general-actions">
+<button type="button" class="copy-general-main" onclick="copyText('url-telc-form')" aria-label="telc Sınav Kaydı bağlantısını kopyala"><span aria-hidden="true">⧉</span> Linki Kopyala</button>
+<a href="https://forms.gle/aPwHN7zHt4JrzrrY7" target="_blank" rel="noopener noreferrer" class="copy-general-open" aria-label="telc Sınav Kaydı sayfasını aç">Aç ↗</a>
+</div>
+</div>
+<div class="copy-general" role="group" aria-label="Online Ödeme Linki">
+<span class="copy-general-title">Online Ödeme Linki</span>
+<div class="copy-general-actions">
+<button type="button" class="copy-general-main" onclick="copyText('url-odeme')" aria-label="Online Ödeme Linki bağlantısını kopyala"><span aria-hidden="true">⧉</span> Linki Kopyala</button>
+<a href="https://vpos.paratika.com.tr/paratikaopenpayment/init/IOF7MA46XP4JPNGHUWKO7DNKPS6BK4J72DQ6SVNP6HXGNRSO" target="_blank" rel="noopener noreferrer" class="copy-general-open" aria-label="Online Ödeme Linki sayfasını aç">Aç ↗</a>
+</div>
+</div></div>
 </section>
 <div aria-label="Panel araçları" class="tools" role="search">
 <div class="search-wrap">
@@ -979,11 +1076,11 @@ section[id],details[id]{scroll-margin-top:18px}
 <button type="button" class="quick-link" data-target="bank-section">Banka Bilgileri</button>
 </nav>
 <section class="favorites-panel" id="favoritesPanel" hidden aria-label="Favori bağlantılar">
-<div class="favorites-title"><strong>★ Favorilerim</strong><small>Yıldızladığınız bağlantılar bu cihazda saklanır.</small></div>
+<div class="favorites-title"><strong>★ Favori Bağlantılarım</strong><small>Yıldızladığınız bağlantıları buradan kopyalayabilir veya açabilirsiniz.</small></div>
 <div class="favorite-items" id="favoriteItems"></div>
 </section>
 <div class="layout"><div>
-<details class="section" open="" id="section-registration">
+<details class="section" id="section-registration">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1033,7 +1130,7 @@ section[id],details[id]{scroll-margin-top:18px}
 </div>
 </div>
 </div>
-</details><details class="section" open="" id="section-exams">
+</details><details class="section" id="section-exams">
 <summary class="section-head" tabindex="0">
 <div class="section-title-wrap">
 <div class="chevron">›</div>
@@ -1478,33 +1575,25 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite">Kopyalandı</div>
 <script>
-    function copyText(id) {
-      const element = document.getElementById(id);
-      if (!element) return;
-
-      const text = element.innerText.trim();
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(showToast);
-      } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-
-        try {
-          document.execCommand('copy');
-        } catch (err) {}
-
-        document.body.removeChild(textarea);
-        showToast();
+    async function copyText(id) {
+      const element=document.getElementById(id);
+      if(!element){showToast('Bağlantı bulunamadı');return;}
+      const value=element.textContent.trim();
+      if(!value){showToast('Bağlantı boş');return;}
+      let success=false;
+      if(navigator.clipboard && window.isSecureContext){
+        try{await navigator.clipboard.writeText(value);success=true;}catch(e){}
       }
+      if(!success){
+        const ta=document.createElement('textarea');
+        ta.value=value;ta.setAttribute('readonly','');
+        ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0;';
+        document.body.appendChild(ta);ta.focus();ta.select();
+        try{success=document.execCommand('copy');}catch(e){}
+        ta.remove();
+      }
+      showToast(success?'Bağlantı kopyalandı':'Kopyalama başarısız. Bağlantıyı elle seçebilirsiniz.');
     }
-
-
 
     function copyRawText(text, message = 'Kopyalandı') {
       const done = () => showToast(message);
@@ -1662,10 +1751,19 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
   Array.from(favorites).forEach(id=>{
    const item=catalog.get(id);
    if(!item)return;
+   const entry=document.createElement('div');
+   entry.className='favorite-entry';
+   const name=document.createElement('span');
+   name.className='favorite-name';name.textContent=item.title;
+   const copy=document.createElement('button');
+   copy.type='button';copy.className='favorite-copy';copy.textContent='Kopyala';
+   copy.setAttribute('aria-label',item.title+' bağlantısını kopyala');
+   copy.addEventListener('click',()=>copyText(id));
    const link=document.createElement('a');
-   link.className='favorite-item';link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';
-   link.textContent=item.title+' ↗';
-   favoriteItems.appendChild(link);
+   link.className='favorite-open';link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';
+   link.textContent='Aç ↗';link.setAttribute('aria-label',item.title+' bağlantısını aç');
+   entry.append(name,copy,link);
+   favoriteItems.appendChild(entry);
   });
   favoriteBox.hidden=!favoriteItems.childElementCount;
   document.querySelectorAll('button.favorite-toggle').forEach(button=>{
