@@ -1,0 +1,40 @@
+name: G2 Preview Browser Check
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/g2-preview-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - run: python -m pip install selenium
+      - name: Visit preview in Chrome
+        run: |
+          python - <<'PY'
+          import json,time
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          opt=Options()
+          for arg in ["--headless=new","--no-sandbox","--disable-dev-shm-usage"]: opt.add_argument(arg)
+          d=webdriver.Chrome(options=opt)
+          try:
+            for width,height in [(1440,900),(390,844)]:
+              d.set_window_size(width,height)
+              d.get("https://onurqlp.github.io/linkler/g2-onizleme/?check="+str(time.time()))
+              time.sleep(4)
+              out=d.execute_script("""return {url:location.href,title:document.title,text:document.body?.innerText?.slice(0,450),header:!!document.querySelector('.g2-announcement'),login:!!document.querySelector('#aydaLoginBox'),loginDisplay:getComputedStyle(document.querySelector('#aydaLoginBox')).display,logoWidth:document.querySelector('.g2-logo-link img')?.naturalWidth,overflow:document.documentElement.scrollWidth-innerWidth}""")
+              print(json.dumps({"screen":[width,height],"data":out},ensure_ascii=False),flush=True)
+              d.save_screenshot("/tmp/g2-"+str(width)+".png")
+              assert out["header"] and out["login"] and out["loginDisplay"]!="none" and out["logoWidth"]>0
+          finally:d.quit()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g2-preview-screenshots
+          path: /tmp/g2-*.png
+          if-no-files-found: ignore
