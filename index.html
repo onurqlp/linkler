@@ -1066,7 +1066,6 @@ section[id],details[id]{scroll-margin-top:18px}
 <button class="tool-btn" onclick="goToBank()" type="button">Banka Bilgileri</button>
 <button class="tool-btn" id="toggleSectionsBtn" onclick="toggleAllSections()" type="button">Tümünü Aç</button></div>
 <nav class="quick-nav" aria-label="Bölümlere hızlı erişim">
-<a class="quick-link" href="https://onurqlp.github.io/fiyat/" target="_blank" rel="noopener noreferrer" aria-label="AYDA fiyat hesaplayıcıyı aç">₺ Fiyat Hesaplama ↗</a>
 <button type="button" class="quick-link" data-target="section-registration">Kayıt ve Ödeme</button>
 <button type="button" class="quick-link" data-target="section-exams">Sınavlar</button>
 <button type="button" class="quick-link" data-target="section-students">Öğrenci İşlemleri</button>
@@ -1077,7 +1076,7 @@ section[id],details[id]{scroll-margin-top:18px}
 <button type="button" class="quick-link" data-target="bank-section">Banka Bilgileri</button>
 </nav>
 <section class="favorites-panel" id="favoritesPanel" hidden aria-label="Favori bağlantılar">
-<div class="favorites-title"><strong>★ Favori Bağlantılarım</strong><small>Yıldızladığınız bağlantıları buradan kopyalayabilir veya açabilirsiniz.</small></div>
+<div class="favorites-title"><strong>★ Sık Kullanılanlar</strong><small>Günlük araçlarınız ve yıldızladığınız bağlantılar.</small></div>
 <div class="favorite-items" id="favoriteItems"></div>
 </section>
 <div class="layout"><div>
@@ -1749,6 +1748,10 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
  function render(){
   if(!favoriteBox || !favoriteItems)return;
   favoriteItems.replaceChildren();
+  const priceEntry=document.createElement('div');
+  priceEntry.className='favorite-entry';
+  priceEntry.innerHTML='<span class="favorite-name">₺ Fiyat Hesaplama</span><a class="favorite-open" href="https://onurqlp.github.io/fiyat/" target="_blank" rel="noopener noreferrer" aria-label="Fiyat hesaplayıcıyı aç">Hesaplayıcıyı Aç ↗</a>';
+  favoriteItems.appendChild(priceEntry);
   Array.from(favorites).forEach(id=>{
    const item=catalog.get(id);
    if(!item)return;
