@@ -991,11 +991,116 @@ section[id],details[id]{scroll-margin-top:18px}
 }
 @media(max-width:340px){.copy-exams{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-general-grid{grid-template-columns:1fr}}
 
+
+/* AYDA 2026 | renkli, mobil odaklı yönetim ana ekranı */
+:root{--bg:#f6f8fd;--border:#e1e7f1;--soft:#edf3ff;--shadow:0 14px 36px rgba(29,52,88,.065)}
+body{background:radial-gradient(ellipse 50% 360px at 8% 0%,#e5edff 0,transparent 100%),radial-gradient(ellipse 34% 300px at 100% 8%,#e4fbf5 0,transparent 100%),var(--bg)}
+.page{max-width:1200px;padding-top:16px}
+.simple-header{background:linear-gradient(120deg,#122b52 0%,#1c477c 55%,#4150ab 100%);position:relative;overflow:hidden;border:0;box-shadow:0 18px 38px rgba(28,63,124,.19);padding:25px 27px}
+.simple-header::after{content:"";position:absolute;right:-65px;top:-92px;width:250px;height:250px;border:1px solid rgba(255,255,255,.17);border-radius:50%;box-shadow:0 0 0 36px rgba(255,255,255,.045),0 0 0 76px rgba(255,255,255,.025);pointer-events:none}
+.simple-header-copy,.simple-title{position:relative;z-index:1}
+.logo{background:#fff;color:#244a80;font-weight:950;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.header-kicker{color:#bfe8ff}
+.simple-subtitle{color:#e0eaff;line-height:1.55}
+.launch-zone{margin:17px 0 16px}
+.launch-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px 12px;margin:0 3px 11px}
+.launch-head h2{font-size:18px;letter-spacing:-.4px;font-weight:900;color:#183054}
+.launch-head p{font-size:12px;color:#667991;font-weight:650}
+.launch-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.launch-card{position:relative;min-width:0;min-height:112px;padding:15px;border-radius:18px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:10px;text-align:left;border:1px solid rgba(255,255,255,.7);text-decoration:none;color:#163354;box-shadow:0 9px 25px rgba(31,53,87,.06);transition:transform .18s,box-shadow .18s}
+a.launch-card:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(31,53,87,.12)}
+.launch-card--featured{grid-column:span 2;min-height:135px;background:linear-gradient(115deg,#273f9d 0%,#5a55cc 100%);color:white;padding:19px 21px;overflow:hidden}
+.launch-card--featured::after{content:"";position:absolute;width:155px;height:155px;border-radius:50%;background:rgba(255,255,255,.08);right:-56px;top:-64px;pointer-events:none}
+.launch-card--featured .launch-copy{color:#dfe3ff}
+.launch-card--mint{background:linear-gradient(145deg,#e0fff2,#c8f6e7)}
+.launch-card--peach{background:linear-gradient(145deg,#fff1dc,#ffdfc5)}
+.launch-card--sky{background:linear-gradient(145deg,#e3f3ff,#d1eaff)}
+.launch-card--lilac{background:linear-gradient(145deg,#f1e7ff,#e5dcff)}
+.launch-card--rose{background:linear-gradient(145deg,#ffeaf0,#ffdae9)}
+.launch-card--yellow{background:linear-gradient(145deg,#fff7d8,#fcebb6)}
+.launch-icon{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.70);font-size:20px;box-shadow:0 2px 6px rgba(30,60,90,.035)}
+.launch-card--featured .launch-icon{background:rgba(255,255,255,.18)}
+.launch-content{display:block;min-width:0}
+.launch-name{display:block;font-size:14px;font-weight:900;line-height:1.3}
+.launch-copy{display:block;font-size:11.5px;color:#526b85;font-weight:650;margin-top:3px;line-height:1.35}
+.launch-feature-top{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.launch-feature-top .launch-icon{width:45px;height:45px;font-size:23px;flex:0 0 auto}
+.launch-card--featured .launch-name{font-size:19px}
+.launch-feature-actions{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.launch-open,.launch-copy-btn{display:inline-flex;align-items:center;justify-content:center;min-height:43px;border-radius:11px;font:850 12px/1.2 inherit;cursor:pointer;padding:11px 15px;text-align:center}
+.launch-open{background:#fff;color:#233f94;border:1px solid #fff}
+.launch-copy-btn{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.launch-open:hover{background:#e9f0ff}
+.launch-copy-btn:hover{background:rgba(255,255,255,.22)}
+.copy-hub{border-color:#e2e8f1;box-shadow:0 8px 24px rgba(30,60,90,.04)}
+.copy-exam:nth-child(1) .copy-exam-main{background:#2c68af;border-color:#2c68af}
+.copy-exam:nth-child(2) .copy-exam-main{background:#0b897f;border-color:#0b897f}
+.copy-exam:nth-child(3) .copy-exam-main{background:#6842a7;border-color:#6842a7}
+.copy-exam:nth-child(4) .copy-exam-main{background:#b45d23;border-color:#b45d23}
+.copy-exam:nth-child(5) .copy-exam-main{background:#bd4776;border-color:#bd4776}
+.copy-exam-level{color:white}
+.copy-exam-main:hover{filter:brightness(1.09)}
+.copy-general-main{background:#2d568c;border-color:#2d568c}
+.quick-link{background:#fff;border-color:#e0e8f3;color:#304d74;font-weight:800}
+.quick-link:nth-child(1){background:#e5f9ee;color:#116343}
+.quick-link:nth-child(2){background:#eae4ff;color:#5541a4}
+.quick-link:nth-child(3){background:#e3f3ff;color:#175c9c}
+.quick-link:nth-child(5){background:#e4eaff;color:#3546a0}
+.quick-link:nth-child(8){background:#fff1d9;color:#87571b}
+.featured-panel-row{background:linear-gradient(105deg,#f0f0ff,#f8faff)}
+.featured-panel-row .link-title{color:#2b3c94}
+#section-registration .action{background:#13825b}
+#section-exams .action{background:#614ab3}
+#section-students .action{background:#197c9d}
+#section-repeat .action{background:#7555aa}
+#section-teachers .action{background:#3049a7}
+#section-resources .action{background:#be652e}
+#section-registration .action:hover,#section-exams .action:hover,#section-students .action:hover,#section-repeat .action:hover,#section-teachers .action:hover,#section-resources .action:hover{filter:brightness(1.12)}
+.action,.copy-btn{min-height:45px}
+details.section{border-color:#e1e7f1}
+summary.section-head{background:linear-gradient(90deg,#fff,#f8faff)}
+#section-registration summary.section-head{border-left:5px solid #26a87b}
+#section-exams summary.section-head{border-left:5px solid #8a6ce2}
+#section-students summary.section-head{border-left:5px solid #54b5d1}
+#section-repeat summary.section-head{border-left:5px solid #a386dd}
+#section-teachers summary.section-head{border-left:5px solid #526bd5}
+#section-resources summary.section-head{border-left:5px solid #eea45f}
+#section-messages summary.section-head{border-left:5px solid #e08ab5}
+#bank-section summary.section-head{border-left:5px solid #e5bb63}
+.bottom-dock{display:none}
+@media(max-width:900px){.launch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+ .page{padding-top:10px;padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+ .simple-header{padding:19px 16px}
+ .simple-header::after{right:-135px}
+ .launch-zone{margin:14px 0 13px}
+ .launch-head h2{font-size:16px}
+ .launch-head p{font-size:11px}
+ .launch-grid{gap:8px}
+ .launch-card{min-height:104px;padding:12px;border-radius:14px}
+ .launch-card--featured{min-height:128px;padding:15px}
+ .launch-card--featured .launch-name{font-size:17px}
+ .launch-name{font-size:12.5px}
+ .launch-copy{font-size:10.5px}
+ .launch-icon{width:34px;height:34px;font-size:18px}
+ .launch-feature-actions{width:100%}
+ .launch-open,.launch-copy-btn{flex:1;min-height:46px}
+ .tools{position:static}
+ .bottom-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;position:fixed;z-index:48;bottom:0;left:0;right:0;padding:9px max(9px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(9px,env(safe-area-inset-left));background:rgba(255,255,255,.97);border-top:1px solid #e1e7f1;box-shadow:0 -10px 30px rgba(23,45,82,.07);backdrop-filter:blur(14px)}
+ .bottom-dock button{min-width:0;min-height:55px;border:0;border-radius:12px;background:#eef3ff;color:#25446f;font:850 11px/1.2 inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer}
+ .bottom-dock button span:first-child{font-size:19px}
+ .bottom-dock button:nth-child(2){background:#e8e9ff;color:#4641a0}
+ .bottom-dock button:nth-child(3){background:#e4f8ed;color:#126946}
+ .bottom-dock button:nth-child(4){background:#fff1db;color:#80521b}
+ .quick-nav{padding-bottom:8px}
+}
+@media(max-width:360px){.launch-feature-actions{flex-direction:column}.launch-card--featured{min-height:173px}}
+
 </style>
 </head>
 <body>
 <main class="page">
-<header class="simple-header">
+<header class="simple-header" id="pageTop">
 <div class="simple-title">
 <div aria-hidden="true" class="logo">AYDA</div>
 <div class="simple-header-copy">
@@ -1005,6 +1110,22 @@ section[id],details[id]{scroll-margin-top:18px}
 </div>
 </div>
 </header>
+
+<section class="launch-zone" aria-labelledby="launchTitle">
+ <div class="launch-head"><h2 id="launchTitle">Hızlı İşlemler</h2><p>Her gün kullandığınız araçlara tek dokunuşla ulaşın.</p></div>
+ <div class="launch-grid">
+  <div class="launch-card launch-card--featured">
+   <div class="launch-feature-top"><span class="launch-icon" aria-hidden="true">👩‍🏫</span><span class="launch-content"><strong class="launch-name">AYDA Hoca Paneli</strong><span class="launch-copy">Yeni öğretmen yönetim ekranı · Google Apps Script</span></span></div>
+   <div class="launch-feature-actions"><a class="launch-open" href="https://script.google.com/macros/s/AKfycbwH8o3rzmtFgV8FrtEkoor2O9lYdF7nXh02Y44f5aycB3ZWDSktrK5Owne8Ojc1etgfag/exec" target="_blank" rel="noopener noreferrer">Paneli Aç ↗</a><button class="launch-copy-btn" type="button" onclick="copyText('url-hoca-panel')">⧉ Linki Kopyala</button></div>
+  </div>
+  <a class="launch-card launch-card--mint" href="https://forms.gle/B2muBd2WMMezVFgK8" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">📝</span><span class="launch-content"><strong class="launch-name">Öğrenci Kaydı</strong><small class="launch-copy">Yeni kayıt formu ↗</small></span></a>
+  <a class="launch-card launch-card--peach" href="https://forms.gle/aPwHN7zHt4JrzrrY7" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">🎓</span><span class="launch-content"><strong class="launch-name">telc Sınav Kaydı</strong><small class="launch-copy">Sınav başvuru formu ↗</small></span></a>
+  <a class="launch-card launch-card--sky" href="https://onurqlp.github.io/kurskatilim/" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">📄</span><span class="launch-content"><strong class="launch-name">Katılım Belgesi</strong><small class="launch-copy">Belge oluştur ↗</small></span></a>
+  <a class="launch-card launch-card--lilac" href="https://www.aydadil.com/ogretmen/" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">📚</span><span class="launch-content"><strong class="launch-name">Öğretmen Materyalleri</strong><small class="launch-copy">Ders kaynakları ↗</small></span></a>
+  <a class="launch-card launch-card--rose" href="https://onurqlp.github.io/SEVIYEBELIRLEME/" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">✅</span><span class="launch-content"><strong class="launch-name">Seviye Sınavları</strong><small class="launch-copy">A1–C1 bağlantıları ↗</small></span></a>
+  <a class="launch-card launch-card--yellow" href="https://onurqlp.github.io/fiyat/" target="_blank" rel="noopener noreferrer"><span class="launch-icon" aria-hidden="true">💳</span><span class="launch-content"><strong class="launch-name">Fiyat Hesaplama</strong><small class="launch-copy">Kurs ücreti hesapla ↗</small></span></a>
+ </div>
+</section>
 <section class="copy-hub" aria-labelledby="copyHubTitle">
 <div class="copy-hub-head"><div><h2 id="copyHubTitle">Hızlı Link Kopyala</h2><p>Öğrenciye göndereceğiniz bağlantıya dokunun; link doğrudan panoya kopyalansın.</p></div><span class="copy-hub-hint" aria-hidden="true">⧉</span></div>
 <div class="copy-hub-subhead"><strong>Seviye belirleme sınavları</strong><span>A1–C1</span></div>
@@ -1333,10 +1454,14 @@ section[id],details[id]{scroll-margin-top:18px}
 <div class="chevron">›</div>
 <h2>Öğretmen &amp; Materyal</h2>
 </div>
-<span class="desc">Ders içerikleri ve iç kullanım · 3 bağlantı</span>
+<span class="desc">Öğretmen paneli, ders içerikleri ve materyaller · 4 bağlantı</span>
 </summary>
 <div class="link-list">
 <div class="empty-state">Bu bölümde eşleşen bağlantı bulunamadı.</div>
+<div class="link-row featured-panel-row">
+ <div class="link-info"><div class="link-title-line"><span class="link-title">AYDA Hoca Paneli (Yeni)</span><span class="badge purple">Panel</span></div><div class="link-url" id="url-hoca-panel">https://script.google.com/macros/s/AKfycbwH8o3rzmtFgV8FrtEkoor2O9lYdF7nXh02Y44f5aycB3ZWDSktrK5Owne8Ojc1etgfag/exec</div></div>
+ <div class="row-actions"><a class="action" href="https://script.google.com/macros/s/AKfycbwH8o3rzmtFgV8FrtEkoor2O9lYdF7nXh02Y44f5aycB3ZWDSktrK5Owne8Ojc1etgfag/exec" target="_blank" rel="noopener noreferrer">Paneli Aç ↗</a><button class="copy-btn" onclick="copyText('url-hoca-panel')" type="button">Kopyala</button></div>
+</div>
 <div class="link-row">
 <div class="link-info">
 <div class="link-title-line">
@@ -1573,6 +1698,13 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
 </details></aside></div>
 <p class="panel-footer">AYDA Dil Akademisi · Yönetim bağlantıları. Bu GitHub Pages sayfası bağlantıyı bilen herkes tarafından görüntülenebilir; özel şifre veya kişisel kayıt eklemeyin.</p>
 </main>
+
+<nav class="bottom-dock" aria-label="Mobil hızlı menü">
+ <button type="button" data-target="pageTop"><span aria-hidden="true">⌂</span>Ana Sayfa</button>
+ <button type="button" data-target="section-teachers"><span aria-hidden="true">👩‍🏫</span>Öğretmen</button>
+ <button type="button" data-target="section-registration"><span aria-hidden="true">📝</span>Kayıt</button>
+ <button type="button" id="bottomSearchBtn"><span aria-hidden="true">⌕</span>Ara</button>
+</nav>
 <div class="toast" id="toast" role="status" aria-live="polite">Kopyalandı</div>
 <script>
     async function copyText(id) {
@@ -1724,6 +1856,12 @@ Hepinize başarılı, verimli ve keyifli bir eğitim dönemi dileriz. 🇩🇪�
       }
     });
   
+document.getElementById('bottomSearchBtn')?.addEventListener('click', () => {
+ const search = document.getElementById('panelSearch');
+ if (!search) return;
+ search.scrollIntoView({block:'center',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ search.focus({preventScroll:true});
+});
 /* Daily links: quick navigation and local, user-controlled favorites */
 (function(){
  document.querySelectorAll('button[data-target]').forEach(button=>{
